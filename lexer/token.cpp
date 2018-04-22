@@ -6,6 +6,8 @@
 
 using namespace lexer;
 
+Token::Token() = default;
+
 Token::Token(TOKEN name, std::string &value) {
     this->name = name;
     this->value = value;

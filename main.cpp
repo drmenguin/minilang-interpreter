@@ -21,12 +21,19 @@ int main() {
         program.append(line + "\n");
 
     // Print program
-    std::cout << program << std::endl;
+    std::cout << "The program string: \n \"" + program + "\"" << std::endl;
 
     // Try lexer
-    lexer::Lexer lexer;
-    std::cout << lexer.next_token(program).value << std::endl;
-    std::cout << lexer.next_token(program, 3).value << std::endl;
+    lexer::Lexer lexer(program);
+    lexer::Token t;
+
+    // Lexemes
+    std::cout << "Lexemes:" << std::endl;
+
+    while (t.name != lexer::TOK_EOF) {
+        t = lexer.next_token();
+        std::cout << "'" + t.value + "'" << std::endl;
+    }
 
     // Close file
     file.close();
