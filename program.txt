@@ -1,4 +1,0 @@
-var x = 3 + 5;
-var y = 7;
-// This is a comment
-var name = "Dave Collins";

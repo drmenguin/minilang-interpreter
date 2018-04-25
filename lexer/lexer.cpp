@@ -13,9 +13,13 @@ using namespace lexer;
 Lexer::Lexer(std::string& program) {
     unsigned int current_index = 0;
 
-    // Tokenise the program
-    while(current_index <= program.length())
-        tokens.push_back(next_token(program, current_index));
+    // Tokenise the program, ignoring comments
+    Token t;
+    while(current_index <= program.length()) {
+        t = next_token(program, current_index);
+        if(t.type != TOK_COMMENT)
+        tokens.push_back(t);
+    }
 }
 
 
@@ -24,7 +28,7 @@ Token Lexer::next_token() {
         return tokens[current_token++];
     else{
         std::string error = "Final token surpassed.";
-        return Token(TOK_ERR, error);
+        return Token(TOK_ERROR, error);
     }
 }
 
@@ -132,7 +136,7 @@ Token Lexer::next_token(std::string &program, unsigned int &current_index) {
     if(current_index == program.length()){
         lexeme = (char) EOF;
         current_index++;
-        return Token(TOK_EOF, lexeme);
+        return Token(22, lexeme, get_line_number(program, current_index));
     }
 
     // While current state is not error state
@@ -165,9 +169,9 @@ Token Lexer::next_token(std::string &program, unsigned int &current_index) {
 
 
     if(is_final[current_state])
-        return Token(TOK_Number, lexeme);
+        return Token(current_state, lexeme, get_line_number(program, current_index));
 
-    else throw std::runtime_error("Syntax error on line " + std::to_string(get_line_number(program, current_index)) + ".");
+    else throw std::runtime_error("Lexical error on line " + std::to_string(get_line_number(program, current_index)) + ".");
 }
 
 int Lexer::get_line_number(std::string &program, unsigned int index) {
