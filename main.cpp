@@ -3,6 +3,7 @@
 
 #include "lexer/lexer.h"
 #include "parser/parser.h"
+#include "visitor/xml_visitor.h"
 
 int main() {
 
@@ -72,8 +73,14 @@ int main() {
 //        std::cout << tokens[t.type] + ": " + t.value << std::endl;
 //    }
 
+    // Parse
     parser::Parser parser(&lexer);
-    parser.parse_statement();
+    parser::ASTProgramNode* prog = parser.parse_program();
+
+
+    // XML generation
+    visitor::XMLVisitor xml_generator;
+    xml_generator.visit(prog);
 
     // Close file
     file.close();

@@ -1,0 +1,11 @@
+<map id="parser::ASTStatementNode" name="parser::ASTStatementNode">
+<area shape="rect" id="node3" href="$de/df0/classparser_1_1_a_s_t_assignment_node.html" title="parser::ASTAssignmentNode" alt="" coords="425,5,617,32"/>
+<area shape="rect" id="node4" href="$d2/d18/classparser_1_1_a_s_t_block_node.html" title="parser::ASTBlockNode" alt="" coords="443,56,599,83"/>
+<area shape="rect" id="node5" href="$d6/d68/classparser_1_1_a_s_t_declaration_node.html" title="parser::ASTDeclarationNode" alt="" coords="426,107,615,133"/>
+<area shape="rect" id="node6" href="$d0/dae/classparser_1_1_a_s_t_function_definition_node.html" title="parser::ASTFunctionDefinitionNode" alt="" coords="407,157,635,184"/>
+<area shape="rect" id="node7" href="$da/dc5/classparser_1_1_a_s_t_if_node.html" title="parser::ASTIfNode" alt="" coords="455,208,586,235"/>
+<area shape="rect" id="node8" href="$d8/d96/classparser_1_1_a_s_t_print_node.html" title="parser::ASTPrintNode" alt="" coords="445,259,596,285"/>
+<area shape="rect" id="node9" href="$d2/d69/classparser_1_1_a_s_t_return_node.html" title="parser::ASTReturnNode" alt="" coords="439,309,602,336"/>
+<area shape="rect" id="node10" href="$da/d5a/classparser_1_1_a_s_t_while_node.html" title="parser::ASTWhileNode" alt="" coords="443,360,599,387"/>
+<area shape="rect" id="node2" href="$db/df3/classparser_1_1_a_s_t_node.html" title="parser::ASTNode" alt="" coords="5,183,128,209"/>
+</map>

@@ -8,11 +8,11 @@ using namespace lexer;
 
 Token::Token() = default;
 
-Token::Token(int final_state, std::string &value, int line_number) {
-    this->type = determine_token_type(final_state, value);
-    this->value = value;
-    this->line_number = line_number;
-}
+Token::Token(int final_state, std::string value, int line_number) :
+    type(determine_token_type(final_state, value)),
+    value(value),
+    line_number(line_number)
+{}
 
 TOKEN Token::determine_token_type(int final_state, std::string &value) {
     switch(final_state) {

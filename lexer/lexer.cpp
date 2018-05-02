@@ -9,7 +9,6 @@
 
 using namespace lexer;
 
-
 Lexer::Lexer(std::string& program) {
     unsigned int current_index = 0;
 
@@ -18,7 +17,7 @@ Lexer::Lexer(std::string& program) {
     while(current_index <= program.length()) {
         t = next_token(program, current_index);
         if(t.type != TOK_COMMENT)
-        tokens.push_back(t);
+            tokens.push_back(t);
     }
 }
 
@@ -32,13 +31,12 @@ Token Lexer::next_token() {
     }
 }
 
-
-int Lexer::transition_delta(int q, char alpha) {
+int Lexer::transition_delta(int s, char sigma) {
 
     /* Check which transition type we have, and then refer to the
      * transition table.
      */
-    switch(alpha){
+    switch(sigma){
         case '0':
         case '1':
         case '2':
@@ -49,39 +47,39 @@ int Lexer::transition_delta(int q, char alpha) {
         case '7':
         case '8':
         case '9':
-            return transitions[DIGIT][q];
+            return transitions[DIGIT][s];
 
         case '.':
-            return transitions[PERIOD][q];
+            return transitions[PERIOD][s];
 
         case '+':
         case '-':
-            return transitions[ADDITIVE_OP][q];
+            return transitions[ADDITIVE_OP][s];
 
         case '*':
-            return transitions[ASTERISK][q];
+            return transitions[ASTERISK][s];
 
         case '!':
-            return transitions[EXCL_MARK][q];
+            return transitions[EXCL_MARK][s];
 
         case '>':
         case '<':
-            return transitions[ORDER_REL][q];
+            return transitions[ORDER_REL][s];
 
         case '=':
-            return transitions[EQUALS][q];
+            return transitions[EQUALS][s];
 
         case '_':
-            return transitions[UNDERSCORE][q];
+            return transitions[UNDERSCORE][s];
 
         case '/':
-            return transitions[FORWARDSLASH][q];
+            return transitions[FORWARDSLASH][s];
 
         case '\\':
-            return transitions[BACKSLASH][q];
+            return transitions[BACKSLASH][s];
 
         case '\"':
-            return transitions[QUOTATION_MARK][q];
+            return transitions[QUOTATION_MARK][s];
 
         case ':':
         case ';':
@@ -90,28 +88,28 @@ int Lexer::transition_delta(int q, char alpha) {
         case ')':
         case '{':
         case '}':
-            return transitions[PUNCTUATION][q];
+            return transitions[PUNCTUATION][s];
 
         case '\n':
-            return transitions[NEWLINE][q];
+            return transitions[NEWLINE][s];
 
         case EOF:
-            return transitions[ENDOFFILE][q];
+            return transitions[ENDOFFILE][s];
 
         default:
-            auto ascii = (int) alpha;
+            auto ascii = (int) sigma;
 
             // If alpha is in [A-Z] or [a-z]
             if (((0x41 <= ascii) && (ascii <= 0x5A)) ||
                 ((0x61 <= ascii) && (ascii <= 0x7A)))
-                return transitions[LETTER][q];
+                return transitions[LETTER][s];
 
             // Else if Printable
             if ((0x20 <= ascii) && (ascii <= 0x7E))
-                return transitions[PRINTABLE][q];
+                return transitions[PRINTABLE][s];
 
             // If other
-            return transitions[OTHER][q];
+            return transitions[OTHER][s];
     }
 
 
@@ -129,7 +127,8 @@ Token Lexer::next_token(std::string &program, unsigned int &current_index) {
     state_stack.push(-1);
 
     // Ignore whitespaces or newlines in front of lexeme
-    while(program[current_index] == ' ' || program[current_index] == '\n')
+    while(current_index < program.length() &&
+          (program[current_index] == ' ' || program[current_index] == '\n'))
         current_index++;
 
     // Check if EOF
@@ -167,9 +166,8 @@ Token Lexer::next_token(std::string &program, unsigned int &current_index) {
         current_index--;
     }
 
-
     if(is_final[current_state])
-        return Token(current_state, lexeme, get_line_number(program, current_index));
+        return Token(current_state, std::move(lexeme), get_line_number(program, current_index));
 
     else throw std::runtime_error("Lexical error on line " + std::to_string(get_line_number(program, current_index)) + ".");
 }
@@ -178,9 +176,8 @@ int Lexer::get_line_number(std::string &program, unsigned int index) {
     int line = 1;
     for(int i = 0; i < index; i++)
         if(program[i] == '\n')
-            line ++;
+            line++;
     return line;
 }
-
 
 Lexer::~Lexer() = default;

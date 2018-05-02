@@ -1,7 +1,7 @@
-//
-// Created by lukec on 05/03/2018.
-//
-
+/**
+ * @file lexer.h
+ * Contains all initialisations
+ */
 #ifndef MINILANG_LEXER_H
 #define MINILANG_LEXER_H
 
@@ -12,6 +12,9 @@
 
 namespace lexer {
 
+    /**
+     * @enum List of possible transition types
+     */
     enum TRANSITION_TYPE {
         DIGIT           =  0,
         PERIOD          =  1,
@@ -35,17 +38,23 @@ namespace lexer {
     class Lexer {
 
         public:
+            /**
+             * Constructor for Lexer class with the input program string as a
+             * parameter. This constructor generates
+             *
+             * @param program An
+             */
             Lexer(std::string&);
             Token next_token();
             ~Lexer();
 
 
         private:
-            unsigned int e = 23;
+            const unsigned int e = 23;
                                 /* S0  S1  S2  S3  S4  S5  S6  S7  S8  S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 Se */
-            bool is_final[24] = {   0,  1,  0,  1,  1,  1,  0,  1,  1,  1,  1,  1,  0,  0,  1,  0,  1,  0,  0,  0,  1,  1,  1, 0};
+            const bool is_final[24] = {   0,  1,  0,  1,  1,  1,  0,  1,  1,  1,  1,  1,  0,  0,  1,  0,  1,  0,  0,  0,  1,  1,  1, 0};
 
-            unsigned int transitions[17][23] = {
+            const unsigned int transitions[17][23] = {
                                      /* S0  S1  S2  S3  S4  S5  S6  S7  S8  S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 */
                 /* DIGIT          */ {   1,  1,  3,  3,  e,  e,  e,  e,  e,  e, 10,  e, 12, 13,  e, 13,  e, 17, 17, 17,  e,  e,  e},
                 /* PERIOD         */ {   2,  3,  e,  e,  e,  e,  e,  e,  e,  e,  e,  e, 12, 13,  e, 13,  e, 17, 17, 17,  e,  e,  e},
@@ -70,6 +79,10 @@ namespace lexer {
             unsigned int current_token = 0;
             std::vector<Token> tokens;
 
+            /**
+             *
+             * @return hi
+             */
             int transition_delta(int, char);
 
             Token next_token(std::string&, unsigned int&);
