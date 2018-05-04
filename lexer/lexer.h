@@ -87,7 +87,7 @@ namespace lexer {
 
             Token next_token(std::string&, unsigned int&);
 
-            int get_line_number(std::string&, unsigned int);
+            unsigned int get_line_number(std::string&, unsigned int);
     };
 
 };

@@ -48,10 +48,10 @@ namespace lexer {
 
         public:
             Token();
-            Token(int, std::string, int line_number = 0);
+            Token(int, std::string, unsigned int line_number = 0);
             TOKEN type;
             std::string value;
-            int line_number;
+            unsigned int line_number;
 
         private:
             TOKEN determine_token_type(int, std::string&);

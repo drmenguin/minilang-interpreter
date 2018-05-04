@@ -71,6 +71,10 @@ ASTDeclarationNode* Parser::parse_declaration_statement() {
     TYPE type;
     std::string identifier;
     ASTExprNode* expr;
+    unsigned int line_number;
+
+    // Determine line number
+    line_number = current_token.line_number;
 
     // Consume identifier
     consume_token();
@@ -101,7 +105,7 @@ ASTDeclarationNode* Parser::parse_declaration_statement() {
                                  + std::to_string(current_token.line_number) + ".");
 
     // Create ASTExpressionNode to return
-    return new ASTDeclarationNode(type, identifier, expr);
+    return new ASTDeclarationNode(type, identifier, expr, line_number);
 }
 
 ASTAssignmentNode* Parser::parse_assignment_statement() {
@@ -109,6 +113,9 @@ ASTAssignmentNode* Parser::parse_assignment_statement() {
     // Node attributes
     std::string identifier;
     ASTExprNode* expr;
+
+    // Determine line number
+    unsigned int line_number = current_token.line_number;
 
     consume_token();
     if(current_token.type != lexer::TOK_IDENTIFIER)
@@ -129,10 +136,13 @@ ASTAssignmentNode* Parser::parse_assignment_statement() {
         throw std::runtime_error("Expected ';' after assignment of " + identifier + " on line "
                                  + std::to_string(current_token.line_number) + ".");
 
-    return new ASTAssignmentNode(identifier, expr);
+    return new ASTAssignmentNode(identifier, expr, line_number);
 }
 
 ASTPrintNode* Parser::parse_print_statement() {
+
+    // Determine line number
+    unsigned int line_number = current_token.line_number;
 
     // Get expression to print
     ASTExprNode* expr = parse_expression();
@@ -146,10 +156,13 @@ ASTPrintNode* Parser::parse_print_statement() {
                                  + std::to_string(current_token.line_number) + ".");
 
     // Return return node
-    return new ASTPrintNode(expr);
+    return new ASTPrintNode(expr, line_number);
 }
 
 ASTReturnNode* Parser::parse_return_statement() {
+
+    // Determine line number
+    unsigned int line_number = current_token.line_number;
 
     // Get expression to return
     ASTExprNode* expr = parse_expression();
@@ -163,12 +176,15 @@ ASTReturnNode* Parser::parse_return_statement() {
                                  + std::to_string(current_token.line_number) + ".");
 
     // Return return node
-    return new ASTReturnNode(expr);
+    return new ASTReturnNode(expr, line_number);
 }
 
 ASTBlockNode* Parser::parse_block() {
 
     auto statements = new std::vector<ASTStatementNode*>;
+
+    // Determine line number
+    unsigned int line_number = current_token.line_number;
 
     // Current token is '{', consume first token of statement
     consume_token();
@@ -187,7 +203,7 @@ ASTBlockNode* Parser::parse_block() {
 
     // If block ended by '}', return block
     if(current_token.type == lexer::TOK_RIGHT_CURLY)
-        return new ASTBlockNode(*statements);
+        return new ASTBlockNode(*statements, line_number);
 
     // Otherwise the user left the block open
     else throw std::runtime_error("Reached end of file while parsing."
@@ -199,6 +215,7 @@ ASTIfNode* Parser::parse_if_statement() {
     //Node attributes
     ASTExprNode* condition;
     ASTBlockNode* if_block;
+    unsigned int line_number = current_token.line_number;
 
     // Consume '('
     consume_token();
@@ -226,7 +243,7 @@ ASTIfNode* Parser::parse_if_statement() {
 
     // Lookahead whether there is an else
     if(next_token.type != lexer::TOK_ELSE)
-        return new ASTIfNode(condition, if_block);
+        return new ASTIfNode(condition, if_block, line_number);
 
     // Otherwise, consume the else
     consume_token();
@@ -241,7 +258,7 @@ ASTIfNode* Parser::parse_if_statement() {
     ASTBlockNode* else_block = parse_block();
 
     // Return if node
-    return new ASTIfNode(condition, if_block, else_block);
+    return new ASTIfNode(condition, if_block, line_number, else_block);
 }
 
 ASTWhileNode* Parser::parse_while_statement() {
@@ -249,6 +266,7 @@ ASTWhileNode* Parser::parse_while_statement() {
     //Node attributes
     ASTExprNode* condition;
     ASTBlockNode* block;
+    unsigned int line_number = current_token.line_number;
 
     // Consume '('
     consume_token();
@@ -275,7 +293,7 @@ ASTWhileNode* Parser::parse_while_statement() {
     block = parse_block();
 
     // Return while node
-    return new ASTWhileNode(condition, block);
+    return new ASTWhileNode(condition, block, line_number);
 }
 
 ASTFunctionDefinitionNode* Parser::parse_function_definition() {
@@ -285,6 +303,7 @@ ASTFunctionDefinitionNode* Parser::parse_function_definition() {
     std::vector<std::pair<std::string, TYPE>> parameters;
     TYPE type;
     ASTBlockNode* block;
+    unsigned int line_number = current_token.line_number;
 
     // Consume identifier
     consume_token();
@@ -355,7 +374,7 @@ ASTFunctionDefinitionNode* Parser::parse_function_definition() {
     block = parse_block();
 
     // Return function definition node
-    return new ASTFunctionDefinitionNode(identifier, parameters, type, block);
+    return new ASTFunctionDefinitionNode(identifier, parameters, type, block, line_number);
 
 }
 
@@ -387,10 +406,11 @@ std::pair<std::string, TYPE>* Parser::parse_formal_param() {
 
 ASTExprNode* Parser::parse_expression() {
     ASTExprNode *simple_expr = parse_simple_expression();
+    unsigned int line_number = current_token.line_number;
 
     if(next_token.type == lexer::TOK_RELATIONAL_OP) {
         consume_token();
-        return new ASTBinaryExprNode(current_token.value, simple_expr, parse_expression());
+        return new ASTBinaryExprNode(current_token.value, simple_expr, parse_expression(), line_number);
     }
 
     return simple_expr;
@@ -399,10 +419,11 @@ ASTExprNode* Parser::parse_expression() {
 ASTExprNode* Parser::parse_simple_expression() {
 
     ASTExprNode *term = parse_term();
+    unsigned int line_number = current_token.line_number;
 
     if(next_token.type == lexer::TOK_ADDITIVE_OP) {
         consume_token();
-        return new ASTBinaryExprNode(current_token.value, term, parse_simple_expression());
+        return new ASTBinaryExprNode(current_token.value, term, parse_simple_expression(), line_number);
     }
 
     return term;
@@ -411,10 +432,11 @@ ASTExprNode* Parser::parse_simple_expression() {
 ASTExprNode* Parser::parse_term() {
 
     ASTExprNode *factor = parse_factor();
+    unsigned int line_number = current_token.line_number;
 
     if(next_token.type == lexer::TOK_MULTIPLICATIVE_OP) {
         consume_token();
-        return new ASTBinaryExprNode(current_token.value, factor, parse_term());
+        return new ASTBinaryExprNode(current_token.value, factor, parse_term(), line_number);
     }
 
     return factor;
@@ -424,17 +446,20 @@ ASTExprNode* Parser::parse_factor() {
 
     consume_token();
 
+    // Determine line number
+    unsigned int line_number = current_token.line_number;
+
     switch(current_token.type){
 
         // Literal Cases
         case lexer::TOK_INT:
-            return new ASTLiteralNode<int>(std::stoi(current_token.value));
+            return new ASTLiteralNode<int>(std::stoi(current_token.value), line_number);
 
         case lexer::TOK_REAL:
-            return new ASTLiteralNode<float>(std::stof(current_token.value));
+            return new ASTLiteralNode<float>(std::stof(current_token.value), line_number);
 
         case lexer::TOK_BOOL:
-            return new ASTLiteralNode<bool>(current_token.value == "true");
+            return new ASTLiteralNode<bool>(current_token.value == "true", line_number);
 
         case lexer::TOK_STRING: {
             // Remove " character from front and end of lexeme
@@ -449,14 +474,14 @@ ASTExprNode* Parser::parse_factor() {
                 pos = str.find("\\\"", pos + 2);
             }
 
-            return new ASTLiteralNode<std::string>(std::move(str));
+            return new ASTLiteralNode<std::string>(std::move(str), line_number);
         }
 
         // Identifier or function call case
         case lexer::TOK_IDENTIFIER:
             if(next_token.type == lexer::TOK_LEFT_BRACKET)
                 return parse_function_call();
-            else return new ASTIdentifierNode(current_token.value);
+            else return new ASTIdentifierNode(current_token.value, line_number);
 
         // Subexpression case
         case lexer::TOK_LEFT_BRACKET: {
@@ -471,7 +496,7 @@ ASTExprNode* Parser::parse_factor() {
         // Unary expression case
         case lexer::TOK_ADDITIVE_OP:
         case lexer::TOK_NOT:
-            return new ASTUnaryExprNode(current_token.value, parse_expression());
+            return new ASTUnaryExprNode(current_token.value, parse_expression(), line_number);
 
         default:
             throw std::runtime_error("Expected expression on line "
@@ -484,7 +509,8 @@ ASTExprNode* Parser::parse_factor() {
 ASTFunctionCallNode* Parser::parse_function_call() {
     // current token is the function identifier
     std::string identifier = current_token.value;
-    std::vector<ASTExprNode*> *parameters = nullptr;
+    auto *parameters = new std::vector<ASTExprNode*>;
+    unsigned int line_number = current_token.line_number;
 
     consume_token();
     if(current_token.type != lexer::TOK_LEFT_BRACKET)
@@ -492,8 +518,11 @@ ASTFunctionCallNode* Parser::parse_function_call() {
                                  + std::to_string(current_token.line_number) + ".");
 
     // If next token is not right bracket, we have parameters
-    if(next_token.type != lexer::TOK_RIGHT_BRACKET)
+    if(next_token.type != lexer::TOK_RIGHT_BRACKET) {
         parameters = parse_actual_params();
+    } else
+        // Consume ')'
+        consume_token();
 
     // Ensure right close bracket after fetching parameters
     if(current_token.type != lexer::TOK_RIGHT_BRACKET)
@@ -501,7 +530,7 @@ ASTFunctionCallNode* Parser::parse_function_call() {
                                  + std::to_string(current_token.line_number)
                                  + " after function parameters.");
 
-    return new ASTFunctionCallNode(identifier, *parameters);
+    return new ASTFunctionCallNode(identifier, *parameters, line_number);
 }
 
 std::vector<ASTExprNode*>* Parser::parse_actual_params() {

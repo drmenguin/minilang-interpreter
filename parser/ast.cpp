@@ -4,6 +4,7 @@
 
 #include "ast.h"
 #include <utility>
+#include <iostream>
 
 using namespace parser;
 
@@ -14,73 +15,90 @@ ASTProgramNode::ASTProgramNode(std::vector<ASTStatementNode*> statements) :
 
 
 // Statement Nodes
-ASTDeclarationNode::ASTDeclarationNode(TYPE type, std::string identifier, ASTExprNode *expr) :
+ASTDeclarationNode::ASTDeclarationNode(TYPE type, std::string identifier, ASTExprNode *expr,
+                                       unsigned int line_number) :
     type(type),
     identifier(std::move(identifier)),
-    expr(expr)
+    expr(expr),
+    line_number(line_number)
 {}
 
-ASTAssignmentNode::ASTAssignmentNode(std::string identifier, ASTExprNode *expr) :
+ASTAssignmentNode::ASTAssignmentNode(std::string identifier, ASTExprNode *expr, unsigned int line_number) :
         identifier(std::move(identifier)),
-        expr(expr)
+        expr(expr),
+        line_number(line_number)
 {}
 
-ASTPrintNode::ASTPrintNode(ASTExprNode *expr) :
-        expr(expr)
+ASTPrintNode::ASTPrintNode(ASTExprNode *expr, unsigned int line_number) :
+        expr(expr),
+        line_number(line_number)
 {}
 
-ASTReturnNode::ASTReturnNode(ASTExprNode *expr) :
-        expr(expr)
+ASTReturnNode::ASTReturnNode(ASTExprNode *expr, unsigned int line_number) :
+        expr(expr),
+        line_number(line_number)
 {}
 
-ASTBlockNode::ASTBlockNode(std::vector<ASTStatementNode*> statements) :
-        statements(std::move(statements))
+ASTBlockNode::ASTBlockNode(std::vector<ASTStatementNode*> statements, unsigned int line_number) :
+        statements(std::move(statements)),
+        line_number(line_number)
 {}
 
-ASTIfNode::ASTIfNode(ASTExprNode* condition, ASTBlockNode *if_block, ASTBlockNode *else_block) :
+ASTIfNode::ASTIfNode(ASTExprNode* condition, ASTBlockNode *if_block, unsigned int line_number,
+                     ASTBlockNode *else_block) :
         condition(condition),
         if_block(if_block),
+        line_number(line_number),
         else_block(else_block)
 {}
 
-ASTWhileNode::ASTWhileNode(ASTExprNode *condition, ASTBlockNode *block) :
+ASTWhileNode::ASTWhileNode(ASTExprNode *condition, ASTBlockNode *block, unsigned int line_number) :
         condition(condition),
-        block(block)
+        block(block),
+        line_number(line_number)
 {}
 
 ASTFunctionDefinitionNode::ASTFunctionDefinitionNode(std::string identifier,
                                                      std::vector<std::pair<std::string, TYPE>> parameters,
-                                                     TYPE type, ASTBlockNode* block) :
+                                                     TYPE type, ASTBlockNode* block, unsigned int line_number) :
         identifier(std::move(identifier)),
         parameters(std::move(parameters)),
         type(type),
-        block(block)
+        block(block),
+        line_number(line_number)
 {
+    // Generate signature
     this->signature = std::vector<TYPE>();
-    for(auto param : parameters)
+    for(auto param : this->parameters)
         signature.push_back(param.second);
 }
 
 
 // Expression Nodes
-ASTBinaryExprNode::ASTBinaryExprNode(std::string op, ASTExprNode *left, ASTExprNode *right) :
+ASTBinaryExprNode::ASTBinaryExprNode(std::string op, ASTExprNode *left, ASTExprNode *right,
+                                     unsigned int line_number) :
         op(std::move(op)),
         left(left),
-        right(right)
+        right(right),
+        line_number(line_number)
 {}
 
-ASTIdentifierNode::ASTIdentifierNode(std::string identifier) :
-        identifier(std::move(identifier))
+ASTIdentifierNode::ASTIdentifierNode(std::string identifier, unsigned int line_number) :
+        identifier(std::move(identifier)),
+        line_number(line_number)
 {}
 
-ASTUnaryExprNode::ASTUnaryExprNode(std::string unary_op, ASTExprNode *expr) :
+ASTUnaryExprNode::ASTUnaryExprNode(std::string unary_op, ASTExprNode *expr, unsigned int line_number) :
     unary_op(std::move(unary_op)),
-    expr(expr)
+    expr(expr),
+    line_number(line_number)
 {}
 
-ASTFunctionCallNode::ASTFunctionCallNode(std::string identifier, std::vector<ASTExprNode*> parameters) :
+ASTFunctionCallNode::ASTFunctionCallNode(std::string identifier, std::vector<ASTExprNode*> parameters,
+                                         unsigned int line_number) :
     identifier(std::move(identifier)),
-    parameters(std::move(parameters))
+    parameters(std::move(parameters)),
+    line_number(line_number)
 {}
 
 

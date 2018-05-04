@@ -21,7 +21,7 @@ std::string XMLVisitor::indentation() {
     return tabs;
 }
 
-void XMLVisitor::visit(parser::ASTProgramNode* program) {
+void XMLVisitor::visit(parser::ASTProgramNode *program) {
 
     // Add initial <program> tag
     xmlfile << indentation() << "<program>" << std::endl;
@@ -40,7 +40,7 @@ void XMLVisitor::visit(parser::ASTProgramNode* program) {
     xmlfile << indentation() << "</program>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTDeclarationNode* decl) {
+void XMLVisitor::visit(parser::ASTDeclarationNode *decl) {
 
     // Add initial <decl> tag
     xmlfile << indentation() << "<decl>" << std::endl;
@@ -62,7 +62,7 @@ void XMLVisitor::visit(parser::ASTDeclarationNode* decl) {
     xmlfile << indentation() << "</decl>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTAssignmentNode* assign) {
+void XMLVisitor::visit(parser::ASTAssignmentNode *assign) {
 
     // Add initial <assign> tag
     xmlfile << indentation() << "<assign>" << std::endl;
@@ -83,7 +83,7 @@ void XMLVisitor::visit(parser::ASTAssignmentNode* assign) {
     xmlfile << indentation() << "</assign>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTPrintNode* print){
+void XMLVisitor::visit(parser::ASTPrintNode *print){
 
     // Add initial <print> tag
     xmlfile << indentation() << "<print>" << std::endl;
@@ -101,7 +101,7 @@ void XMLVisitor::visit(parser::ASTPrintNode* print){
     xmlfile << indentation() << "</print>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTReturnNode* ret) {
+void XMLVisitor::visit(parser::ASTReturnNode *ret) {
 
     // Add initial <return> tag
     xmlfile << indentation() << "<return>" << std::endl;
@@ -119,7 +119,7 @@ void XMLVisitor::visit(parser::ASTReturnNode* ret) {
     xmlfile << indentation() << "</return>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTBlockNode* block) {
+void XMLVisitor::visit(parser::ASTBlockNode *block) {
 
     // Add initial <block> tag
     xmlfile << indentation() << "<block>" << std::endl;
@@ -138,7 +138,7 @@ void XMLVisitor::visit(parser::ASTBlockNode* block) {
     xmlfile << indentation() << "</block>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTIfNode* ifnode) {
+void XMLVisitor::visit(parser::ASTIfNode *ifnode) {
 
     // Add initial <if> tag
     xmlfile << indentation() << "<if>" << std::endl;
@@ -202,7 +202,7 @@ void XMLVisitor::visit(parser::ASTIfNode* ifnode) {
     xmlfile << indentation() << "</if>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTWhileNode* whilenode) {
+void XMLVisitor::visit(parser::ASTWhileNode *whilenode) {
 
     // Add initial <while> tag
     xmlfile << indentation() << "<while>" << std::endl;
@@ -235,7 +235,7 @@ void XMLVisitor::visit(parser::ASTWhileNode* whilenode) {
     xmlfile << indentation() << "</while>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTFunctionDefinitionNode* func) {
+void XMLVisitor::visit(parser::ASTFunctionDefinitionNode *func) {
 
     // Add initial <func-def> tag
     xmlfile << indentation() << "<func-def type = \"" + type_str(func->type) +
@@ -264,7 +264,7 @@ void XMLVisitor::visit(parser::ASTFunctionDefinitionNode* func) {
 
 }
 
-void XMLVisitor::visit(parser::ASTLiteralNode<int>* lit) {
+void XMLVisitor::visit(parser::ASTLiteralNode<int> *lit) {
 
     // Add initial <int> tag
     xmlfile << indentation() << "<int>";
@@ -276,7 +276,7 @@ void XMLVisitor::visit(parser::ASTLiteralNode<int>* lit) {
     xmlfile << "</int>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTLiteralNode<float>* lit) {
+void XMLVisitor::visit(parser::ASTLiteralNode<float> *lit) {
 
     // Add initial <real> tag
     xmlfile << indentation() << "<real>";
@@ -288,7 +288,7 @@ void XMLVisitor::visit(parser::ASTLiteralNode<float>* lit) {
     xmlfile << "</real>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTLiteralNode<bool>* lit) {
+void XMLVisitor::visit(parser::ASTLiteralNode<bool> *lit) {
 
     // Add initial <bool> tag
     xmlfile << indentation() << "<bool>";
@@ -300,7 +300,7 @@ void XMLVisitor::visit(parser::ASTLiteralNode<bool>* lit) {
     xmlfile << "</bool>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTLiteralNode<std::string>* lit) {
+void XMLVisitor::visit(parser::ASTLiteralNode<std::string> *lit) {
 
     // Add initial <string> tag
     xmlfile << indentation() << "<string>";
@@ -312,7 +312,7 @@ void XMLVisitor::visit(parser::ASTLiteralNode<std::string>* lit) {
     xmlfile << "</string>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTBinaryExprNode* bin) {
+void XMLVisitor::visit(parser::ASTBinaryExprNode *bin) {
 
     // Add initial <bin> tag
     xmlfile << indentation() << "<bin op = \"" + xml_safe_op(bin->op) +
@@ -334,7 +334,7 @@ void XMLVisitor::visit(parser::ASTBinaryExprNode* bin) {
     xmlfile << indentation() << "</bin>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTIdentifierNode* id) {
+void XMLVisitor::visit(parser::ASTIdentifierNode *id) {
 
     // Add initial <id> tag
     xmlfile << indentation() << "<id>";
@@ -347,7 +347,7 @@ void XMLVisitor::visit(parser::ASTIdentifierNode* id) {
 
 }
 
-void XMLVisitor::visit(parser::ASTUnaryExprNode* un) {
+void XMLVisitor::visit(parser::ASTUnaryExprNode *un) {
 
     // Add initial <unary> tag
     xmlfile << indentation() << "<unary op = \"" + un -> unary_op + "\">"
@@ -366,7 +366,7 @@ void XMLVisitor::visit(parser::ASTUnaryExprNode* un) {
     xmlfile << indentation() << "</unary>" << std::endl;
 }
 
-void XMLVisitor::visit(parser::ASTFunctionCallNode* func) {
+void XMLVisitor::visit(parser::ASTFunctionCallNode *func) {
 
     // Add initial <func-call> tag
     xmlfile << indentation() << "<func-call>" << std::endl;

@@ -172,8 +172,8 @@ Token Lexer::next_token(std::string &program, unsigned int &current_index) {
     else throw std::runtime_error("Lexical error on line " + std::to_string(get_line_number(program, current_index)) + ".");
 }
 
-int Lexer::get_line_number(std::string &program, unsigned int index) {
-    int line = 1;
+unsigned int Lexer::get_line_number(std::string &program, unsigned int index) {
+    unsigned int line = 1;
     for(int i = 0; i < index; i++)
         if(program[i] == '\n')
             line++;

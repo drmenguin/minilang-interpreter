@@ -4,6 +4,7 @@
 #include "lexer/lexer.h"
 #include "parser/parser.h"
 #include "visitor/xml_visitor.h"
+#include "visitor/semantic_analysis.h"
 
 int main() {
 
@@ -59,7 +60,7 @@ int main() {
         program.append(line + "\n");
 
     // Print program
-    std::cout << "The program string: \n \"" + program + "\"" << std::endl;
+    // std::cout << "The program string: \n \"" + program + "\"" << std::endl;
 
     // Try lexer
     lexer::Lexer lexer(program);
@@ -81,6 +82,10 @@ int main() {
     // XML generation
     visitor::XMLVisitor xml_generator;
     xml_generator.visit(prog);
+
+    // Semantic Analysis
+    visitor::SemanticAnalyser semantic_analyser;
+    semantic_analyser.visit(prog);
 
     // Close file
     file.close();
