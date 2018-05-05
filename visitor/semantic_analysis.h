@@ -12,7 +12,7 @@
 
 namespace visitor {
 
-    class Scope {
+    class SemanticScope {
     public:
         bool already_declared(std::string);
         bool already_declared(std::string, std::vector<parser::TYPE>);
@@ -24,17 +24,15 @@ namespace visitor {
         unsigned int declaration_line(std::string, std::vector<parser::TYPE>);
 
     private:
-        typedef std::map<std::string,
-                         std::pair<parser::TYPE,
-                                   unsigned int>> varmap;
+        std::map<std::string,
+                 std::pair<parser::TYPE,
+                           unsigned int>> variable_symbol_table;
 
-        typedef std::multimap<std::string,
-                              std::tuple<parser::TYPE,
-                                         std::vector<parser::TYPE>,
-                                         unsigned int>> funcmap;
+        std::multimap<std::string,
+                      std::tuple<parser::TYPE,
+                                 std::vector<parser::TYPE>,
+                                 unsigned int>> function_symbol_table;
 
-        varmap variable_symbol_table;
-        funcmap function_symbol_table;
     };
 
     class SemanticAnalyser : Visitor {
@@ -61,7 +59,7 @@ namespace visitor {
         void visit(parser::ASTFunctionCallNode*) override;
 
     private:
-        std::vector<Scope*> scopes;
+        std::vector<SemanticScope*> scopes;
         std::stack<parser::TYPE> functions;
         parser::TYPE current_expression_type;
         std::vector<std::pair<std::string, parser::TYPE>> current_function_parameters;

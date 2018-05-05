@@ -69,8 +69,10 @@ ASTFunctionDefinitionNode::ASTFunctionDefinitionNode(std::string identifier,
 {
     // Generate signature
     this->signature = std::vector<TYPE>();
-    for(auto param : this->parameters)
+    for(auto param : this->parameters) {
+        variable_names.push_back(param.first);
         signature.push_back(param.second);
+    }
 }
 
 

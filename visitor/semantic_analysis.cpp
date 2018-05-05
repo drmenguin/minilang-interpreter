@@ -8,11 +8,11 @@
 
 using namespace visitor;
 
-bool Scope::already_declared(std::string identifier) {
+bool SemanticScope::already_declared(std::string identifier) {
     return variable_symbol_table.find(identifier) != variable_symbol_table.end();
 }
 
-bool Scope::already_declared(std::string identifier, std::vector<parser::TYPE> signature) {
+bool SemanticScope::already_declared(std::string identifier, std::vector<parser::TYPE> signature) {
 
     auto funcs = function_symbol_table.equal_range(identifier);
 
@@ -29,11 +29,11 @@ bool Scope::already_declared(std::string identifier, std::vector<parser::TYPE> s
     return false;
 }
 
-void Scope::declare(std::string identifier, parser::TYPE type, unsigned int line_number) {
+void SemanticScope::declare(std::string identifier, parser::TYPE type, unsigned int line_number) {
     variable_symbol_table[identifier] = std::make_pair(type, line_number);
 }
 
-void Scope::declare(std::string identifier, parser::TYPE type, std::vector<parser::TYPE> signature,
+void SemanticScope::declare(std::string identifier, parser::TYPE type, std::vector<parser::TYPE> signature,
                     unsigned int line_number) {
 
     function_symbol_table
@@ -42,7 +42,7 @@ void Scope::declare(std::string identifier, parser::TYPE type, std::vector<parse
                                                                line_number)));
 }
 
-parser::TYPE Scope::type(std::string identifier) {
+parser::TYPE SemanticScope::type(std::string identifier) {
 
     if(already_declared(identifier))
         return variable_symbol_table[identifier].first;
@@ -50,7 +50,7 @@ parser::TYPE Scope::type(std::string identifier) {
     throw std::runtime_error("Something went wrong when determining the type of '" + identifier + "'.");
 }
 
-parser::TYPE Scope::type(std::string identifier, std::vector<parser::TYPE> signature) {
+parser::TYPE SemanticScope::type(std::string identifier, std::vector<parser::TYPE> signature) {
 
     auto funcs = function_symbol_table.equal_range(identifier);
 
@@ -67,15 +67,15 @@ parser::TYPE Scope::type(std::string identifier, std::vector<parser::TYPE> signa
     throw std::runtime_error("Something went wrong when determining the type of '" + identifier + "'.");
 }
 
-unsigned int Scope::declaration_line(std::string identifier) {
+unsigned int SemanticScope::declaration_line(std::string identifier) {
 
     if(already_declared(identifier))
-        return variable_symbol_table[std::move(identifier)].first;
+        return variable_symbol_table[std::move(identifier)].second;
 
     throw std::runtime_error("Something went wrong when determining the line number of '" + identifier + "'.");
 }
 
-unsigned int Scope::declaration_line(std::string identifier, std::vector<parser::TYPE> signature) {
+unsigned int SemanticScope::declaration_line(std::string identifier, std::vector<parser::TYPE> signature) {
 
     auto funcs = function_symbol_table.equal_range(identifier);
 
@@ -96,20 +96,20 @@ unsigned int Scope::declaration_line(std::string identifier, std::vector<parser:
 SemanticAnalyser::SemanticAnalyser() = default;
 SemanticAnalyser::~SemanticAnalyser() = default;
 
-void SemanticAnalyser::visit(parser::ASTProgramNode *program) {
+void SemanticAnalyser::visit(parser::ASTProgramNode *prog) {
 
     // Add global scope
-    scopes.push_back(new Scope());
+    scopes.push_back(new SemanticScope());
 
     // For each statement, accept
-    for(auto &statement : program -> statements)
+    for(auto &statement : prog -> statements)
         statement -> accept(this);
 }
 
 void SemanticAnalyser::visit(parser::ASTDeclarationNode *decl){
 
     // Current scope is the scope at the back
-    Scope *current_scope = scopes.back();
+    SemanticScope *current_scope = scopes.back();
 
     // If variable already declared, throw error
     if(current_scope->already_declared(decl->identifier))
@@ -180,10 +180,10 @@ void SemanticAnalyser::visit(parser::ASTReturnNode *ret) {
                                  type_str(current_expression_type) + ".");
 }
 
-void SemanticAnalyser::visit(parser::ASTBlockNode* block) {
+void SemanticAnalyser::visit(parser::ASTBlockNode *block) {
 
     // Create new scope
-    scopes.push_back(new Scope());
+    scopes.push_back(new SemanticScope());
 
     // Check whether this is a function block by seeing if we have any current function
     // parameters. If we do, then add them to the current scope.

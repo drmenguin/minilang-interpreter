@@ -465,13 +465,40 @@ ASTExprNode* Parser::parse_factor() {
             // Remove " character from front and end of lexeme
             std::string str = current_token.value.substr(1, current_token.value.size() - 2);
 
-            // Replace \" with "
+            // Replace \" with quote
             size_t pos = str.find("\\\"");
             while (pos != std::string::npos) {
                 // Replace
                 str.replace(pos, 2, "\"");
                 // Get next occurrence from current position
                 pos = str.find("\\\"", pos + 2);
+            }
+
+            // Replace \n with newline
+            pos = str.find("\\n");
+            while (pos != std::string::npos) {
+                // Replace
+                str.replace(pos, 2, "\n");
+                // Get next occurrence from current position
+                pos = str.find("\\n", pos + 2);
+            }
+
+            // Replace \t with tab
+            pos = str.find("\\t");
+            while (pos != std::string::npos) {
+                // Replace
+                str.replace(pos, 2, "\t");
+                // Get next occurrence from current position
+                pos = str.find("\\t", pos + 2);
+            }
+
+            // Replace \b with backslash
+            pos = str.find("\\b");
+            while (pos != std::string::npos) {
+                // Replace
+                str.replace(pos, 2, "\\");
+                // Get next occurrence from current position
+                pos = str.find("\\b", pos + 2);
             }
 
             return new ASTLiteralNode<std::string>(std::move(str), line_number);

@@ -294,7 +294,7 @@ void XMLVisitor::visit(parser::ASTLiteralNode<bool> *lit) {
     xmlfile << indentation() << "<bool>";
 
     // Add value
-    xmlfile << std::to_string(lit->val);
+    xmlfile << ((lit->val) ? "true" : "false");
 
     // Add closing tag
     xmlfile << "</bool>" << std::endl;

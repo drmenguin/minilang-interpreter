@@ -5,6 +5,7 @@
 #include "parser/parser.h"
 #include "visitor/xml_visitor.h"
 #include "visitor/semantic_analysis.h"
+#include "visitor/interpreter.h"
 
 int main() {
 
@@ -86,6 +87,10 @@ int main() {
     // Semantic Analysis
     visitor::SemanticAnalyser semantic_analyser;
     semantic_analyser.visit(prog);
+
+    // Interpreter
+    visitor::Interpreter interpreter;
+    interpreter.visit(prog);
 
     // Close file
     file.close();

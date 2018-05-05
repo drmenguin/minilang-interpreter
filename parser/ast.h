@@ -107,6 +107,7 @@ namespace parser {
                                   TYPE, ASTBlockNode*, unsigned int);
         std::string identifier;
         std::vector<std::pair<std::string, TYPE>> parameters;
+        std::vector<std::string> variable_names;
         std::vector<TYPE> signature;
         TYPE type;
         ASTBlockNode* block;
