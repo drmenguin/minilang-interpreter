@@ -1,7 +1,7 @@
 
-# MiniLang: A Compiler Written in C++
+# MiniLang: An Interpreter Written in C++
 
-This compiler and REPL software were developed as part of a programming assignment for [CPS2000: Compiler Theory and Practice](https://www.um.edu.mt/courses/studyunit/CPS2000), a course forming part of my B.Sc. in Mathematics and Computer Science.
+This interpreter and REPL software were developed as part of a programming assignment for [CPS2000: Compiler Theory and Practice](https://www.um.edu.mt/courses/studyunit/CPS2000), a course forming part of my B.Sc. in Mathematics and Computer Science.
 
 ![REPL Example](images/repl.gif) 
 
@@ -20,12 +20,8 @@ The following code showcases some valid MiniLang syntax.
     }
     
     def fac(n : int) : int {
-       if (n == 0) { 
-           return 1; 
-       }
-       else {
-           return n * fac(n-1); 
-       }
+       if (n == 0) { return 1; }
+       else { return n * fac(n-1); }
     }
 
     var x : real = 2.4;
