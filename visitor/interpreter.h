@@ -38,6 +38,8 @@ namespace visitor {
         std::vector<std::string> variable_names_of(std::string, std::vector<parser::TYPE>);
         parser::ASTBlockNode* block_of(std::string, std::vector<parser::TYPE>);
 
+        std::vector<std::tuple<std::string, std::string, std::string>>  variable_list();
+
     private:
         std::map<std::string,
                  std::pair<parser::TYPE,
@@ -53,6 +55,7 @@ namespace visitor {
     public:
 
         Interpreter();
+        Interpreter(InterpreterScope*);
         ~Interpreter();
 
         void visit(parser::ASTProgramNode*) override;
@@ -72,6 +75,8 @@ namespace visitor {
         void visit(parser::ASTIdentifierNode*) override;
         void visit(parser::ASTUnaryExprNode*) override;
         void visit(parser::ASTFunctionCallNode*) override;
+
+        std::pair<parser::TYPE, value_t> current_expr();
 
     private:
         std::vector<InterpreterScope*> scopes;

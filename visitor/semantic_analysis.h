@@ -23,6 +23,8 @@ namespace visitor {
         unsigned int declaration_line(std::string);
         unsigned int declaration_line(std::string, std::vector<parser::TYPE>);
 
+        std::vector<std::pair<std::string, std::string>> function_list();
+
     private:
         std::map<std::string,
                  std::pair<parser::TYPE,
@@ -38,6 +40,7 @@ namespace visitor {
     class SemanticAnalyser : Visitor {
     public:
         SemanticAnalyser();
+        SemanticAnalyser(SemanticScope*);
         ~SemanticAnalyser();
 
         void visit(parser::ASTProgramNode*) override;
@@ -63,9 +66,10 @@ namespace visitor {
         std::stack<parser::TYPE> functions;
         parser::TYPE current_expression_type;
         std::vector<std::pair<std::string, parser::TYPE>> current_function_parameters;
-        std::string type_str(parser::TYPE);
         bool returns(parser::ASTStatementNode*);
     };
+
+    std::string type_str(parser::TYPE);
 }
 
 #endif //MINILANG_SEMANTIC_ANALYSIS_H

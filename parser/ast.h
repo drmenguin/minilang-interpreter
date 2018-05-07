@@ -34,8 +34,8 @@ namespace parser {
     // Statement Nodes
     class ASTProgramNode : public ASTNode {
     public:
-        explicit ASTProgramNode(std::vector<ASTStatementNode*>);
-        std::vector<ASTStatementNode*> statements;
+        explicit ASTProgramNode(std::vector<ASTNode*>);
+        std::vector<ASTNode*> statements;
         void accept(visitor::Visitor*) override;
     };
 

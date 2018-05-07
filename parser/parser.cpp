@@ -12,6 +12,12 @@ Parser::Parser(lexer::Lexer* lex) : lex(lex) {
     next_token    = lex->next_token();
 }
 
+Parser::Parser(lexer::Lexer* lex, unsigned int tokens) : lex(lex) {
+    next_token = lex->next_token();
+    for(unsigned int i = 0; i < tokens; i++)
+        consume_token();
+}
+
 void Parser::consume_token() {
     current_token = next_token;
     next_token = lex->next_token();
@@ -19,7 +25,7 @@ void Parser::consume_token() {
 
 ASTProgramNode* Parser::parse_program() {
 
-    auto statements = new std::vector<ASTStatementNode*>;
+    auto statements = new std::vector<ASTNode*>;
 
     while(current_token.type != lexer::TOK_EOF){
         statements->push_back(parse_statement());

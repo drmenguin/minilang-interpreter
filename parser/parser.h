@@ -15,7 +15,9 @@ namespace parser {
 
         public:
             explicit Parser(lexer::Lexer*);
+            Parser(lexer::Lexer*, unsigned int);
             ASTProgramNode* parse_program();
+            ASTExprNode* parse_expression();  // public for repl
 
         private:
 
@@ -37,7 +39,6 @@ namespace parser {
             ASTFunctionDefinitionNode*    parse_function_definition();
 
             // Expression Nodes
-            ASTExprNode*               parse_expression();
             ASTExprNode*               parse_simple_expression();
             ASTExprNode*               parse_term();
             ASTExprNode*               parse_factor();

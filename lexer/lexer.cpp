@@ -166,9 +166,12 @@ Token Lexer::next_token(std::string &program, unsigned int &current_index) {
         current_index--;
     }
 
+    if(current_state == -1)
+        throw std::runtime_error("Lexical error.");
+
+
     if(is_final[current_state])
         return Token(current_state, std::move(lexeme), get_line_number(program, current_index));
-
     else throw std::runtime_error("Lexical error on line " + std::to_string(get_line_number(program, current_index)) + ".");
 }
 

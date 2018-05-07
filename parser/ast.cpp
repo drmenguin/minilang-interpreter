@@ -9,7 +9,7 @@
 using namespace parser;
 
 // Program Node
-ASTProgramNode::ASTProgramNode(std::vector<ASTStatementNode*> statements) :
+ASTProgramNode::ASTProgramNode(std::vector<ASTNode*> statements) :
         statements(std::move(statements))
 {}
 

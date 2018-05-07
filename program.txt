@@ -17,14 +17,14 @@ def cos(x : real) : real{
         else {return n * fac(n-1);}
     }
 
-    // Take 20 terms of Maclaurin series for cos(x)
+    // Take 10 terms of Maclaurin series for cos(x)
     var k : int = 0;
     var cos_x : real = 0;
-    while(k < 20){
-        set cos_x = cos_x + pow(-1.0, k)/fac(2*k+1) * pow(x, 2*k+1);
+    while(k < 8){
+        set cos_x = cos_x + (pow(-1., k) / fac(2*k)) * pow(x, 2*k);
         set k = k + 1;
     }
     return cos_x;
 }
 
-print cos(3.14159);
+print cos(3.1415926535897932);

@@ -93,13 +93,48 @@ parser::ASTBlockNode* InterpreterScope::block_of(std::string identifier, std::ve
     return nullptr;
 }
 
-Interpreter::Interpreter() = default;
+std::vector<std::tuple<std::string, std::string, std::string>> InterpreterScope::variable_list() {
+
+    std::vector<std::tuple<std::string, std::string, std::string>> list;
+
+    for(auto const &var : variable_symbol_table)
+        switch(var.second.first){
+            case parser::INT:
+                list.emplace_back(std::make_tuple(
+                        var.first, "int", std::to_string(var.second.second.i)));
+                break;
+            case parser::REAL:
+                list.emplace_back(std::make_tuple(
+                        var.first, "real", std::to_string(var.second.second.r)));
+                break;
+            case parser::BOOL:
+                list.emplace_back(std::make_tuple(
+                        var.first, "bool",  (var.second.second.b) ? "true" : "false"));
+                break;
+            case parser::STRING:
+                list.emplace_back(std::make_tuple(
+                        var.first, "string",  var.second.second.s));
+                break;
+        }
+
+    return std::move(list);
+}
+
+
+Interpreter::Interpreter(){
+    // Add global scope
+    scopes.push_back(new InterpreterScope());
+}
+
+Interpreter::Interpreter(InterpreterScope* global_scope) {
+    // Add global scope
+    scopes.push_back(global_scope);
+}
+
 Interpreter::~Interpreter() = default;
 
 
 void visitor::Interpreter::visit(parser::ASTProgramNode *prog) {
-    // Add global scope
-    scopes.push_back(new InterpreterScope());
 
     // For each statement, accept
     for(auto &statement : prog -> statements)
@@ -468,6 +503,13 @@ void visitor::Interpreter::visit(parser::ASTFunctionCallNode *func) {
 
 }
 
+
+std::pair<parser::TYPE, value_t> Interpreter::current_expr(){
+    return std::move(std::make_pair(current_expression_type,
+                                    current_expression_value));
+};
+
+
 std::string visitor::type_str(parser::TYPE t) {
 
     switch(t){
@@ -480,7 +522,7 @@ std::string visitor::type_str(parser::TYPE t) {
         case parser::STRING:
             return "string";
         default:
-            throw std::runtime_error("Invalid type encountered in syntax tree when generating XML.");
+            throw std::runtime_error("Invalid type encountered.");
     }
 }
 

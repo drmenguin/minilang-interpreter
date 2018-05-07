@@ -93,13 +93,43 @@ unsigned int SemanticScope::declaration_line(std::string identifier, std::vector
 }
 
 
-SemanticAnalyser::SemanticAnalyser() = default;
+std::vector<std::pair<std::string, std::string>> SemanticScope::function_list() {
+
+    std::vector<std::pair<std::string, std::string>> list;
+
+    for(auto func = function_symbol_table.begin(), last = function_symbol_table.end();
+        func != last; func = function_symbol_table.upper_bound(func -> first)){
+
+        std::string func_name = func->first + "(";
+        bool has_params = false;
+        for(auto param : std::get<1>(func -> second)) {
+            has_params = true;
+            func_name += type_str(param) + ", ";
+        }
+        func_name.pop_back();   // remove last whitespace
+        func_name.pop_back();   // remove last comma
+        func_name += ")";
+
+        list.emplace_back(std::make_pair(func_name, type_str(std::get<0>(func->second))));
+    }
+
+    return std::move(list);
+}
+
+
+SemanticAnalyser::SemanticAnalyser() {
+    // Add global scope
+    scopes.push_back(new SemanticScope());
+};
+
+SemanticAnalyser::SemanticAnalyser(SemanticScope* global_scope) {
+    // Add global scope
+    scopes.push_back(global_scope);
+};
+
 SemanticAnalyser::~SemanticAnalyser() = default;
 
 void SemanticAnalyser::visit(parser::ASTProgramNode *prog) {
-
-    // Add global scope
-    scopes.push_back(new SemanticScope());
 
     // For each statement, accept
     for(auto &statement : prog -> statements)
@@ -442,7 +472,7 @@ void SemanticAnalyser::visit(parser::ASTFunctionCallNode *func) {
 }
 
 
-std::string SemanticAnalyser::type_str(parser::TYPE t) {
+std::string type_str(parser::TYPE t) {
 
     switch(t){
         case parser::INT:
@@ -454,7 +484,7 @@ std::string SemanticAnalyser::type_str(parser::TYPE t) {
         case parser::STRING:
             return "string";
         default:
-            throw std::runtime_error("Invalid type encountered in syntax tree when generating XML.");
+            throw std::runtime_error("Invalid type encountered.");
     }
 }
 
