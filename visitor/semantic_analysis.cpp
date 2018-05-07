@@ -462,10 +462,20 @@ void SemanticAnalyser::visit(parser::ASTFunctionCallNode *func) {
     for (i = scopes.size() - 1;
          !scopes[i] -> already_declared(func->identifier, signature);
          i--)
-        if(i <= 0)
-            throw std::runtime_error("Function '" + func->identifier + "' appearing on line " +
+        if(i <= 0) {
+            std::string func_name = func->identifier + "(";
+            bool has_params = false;
+            for(auto param : signature) {
+                has_params = true;
+                func_name += type_str(param) + ", ";
+            }
+            func_name.pop_back();   // remove last whitespace
+            func_name.pop_back();   // remove last comma
+            func_name += ")";
+            throw std::runtime_error("Function '" + func_name + "' appearing on line " +
                                      std::to_string(func->line_number) + " was never declared " +
                                      ((scopes.size() == 1) ? "globally." : "in this scope."));
+        }
 
     // Set current expression type to the return value of the function
     current_expression_type = scopes[i]->type(func->identifier, std::move(signature));

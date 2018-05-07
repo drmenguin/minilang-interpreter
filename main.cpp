@@ -200,8 +200,14 @@ int main() {
             visitor::XMLVisitor xml_generator;
             xml_generator.visit(prog);
 
-            // Semantic Analysis
-            visitor::SemanticAnalyser semantic_analyser(&semantic_global_scope);
+
+            // Try to analyse in temporary scope
+            visitor::SemanticScope temp;
+            visitor::SemanticAnalyser semantic_analyser(&temp);
+            semantic_analyser.visit(prog);
+
+            // If this succeeds, perform semantic analysis modifying global scope
+            semantic_analyser = visitor::SemanticAnalyser(&semantic_global_scope);
             semantic_analyser.visit(prog);
 
             // Interpreter

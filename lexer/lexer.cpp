@@ -21,7 +21,6 @@ Lexer::Lexer(std::string& program) {
     }
 }
 
-
 Token Lexer::next_token() {
     if(current_token < tokens.size())
         return tokens[current_token++];
