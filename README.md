@@ -8,27 +8,27 @@ This interpreter and REPL software were developed as part of a programming assig
 The following code showcases some valid MiniLang syntax. 
 
     def square(x : real) : real {
-        return x∗x;
+        return x*x;
     }
 
-    def is_greater_than(x : real, y : real) : bool {
-        var ans : bool = true;
-        if (y > x) {
-           set ans = false;
-        }
-        return ans;
+    def repeat_string(s : string, n : int){
+      /* Repeats string s, n times */
+      var s_rep : string = "";
+      while(n > 0){
+         set s_rep = s_rep + s;
+         set n = n - 1;
+      }
     }
     
     def fac(n : int) : int {
+       /* Recursive factorial */
        if (n == 0) { return 1; }
        else { return n * fac(n-1); }
     }
 
-    var x : real = 2.4;
-    var y : real = square(2.5);
-    print y;                                         /* 6.25 */
-    print is_greater_than(x, fac(3));                // false
-    print is_greater_than(x, square(1.5));           // true
+    print repeat_string("Hello", 10);         
+    print fac(5) - square(5);              // 95
+    print square(fac(5)+0.)                // 14400
 
 ### MiniLang Production Rules in Extended BNF
 The following extended BNF production rules describe the entire grammar of MiniLang.
