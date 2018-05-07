@@ -11,13 +11,14 @@ The following code showcases some valid MiniLang syntax.
         return x*x;
     }
 
-    def repeat_string(s : string, n : int){
+    def repeat_string(s : string, n : int) : string {
       /* Repeats string s, n times */
       var s_rep : string = "";
       while(n > 0){
          set s_rep = s_rep + s;
          set n = n - 1;
       }
+      return s_rep;
     }
     
     def fac(n : int) : int {
