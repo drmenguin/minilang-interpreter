@@ -202,12 +202,12 @@ int main() {
 
 
             // Try to analyse in temporary scope
-            visitor::SemanticScope temp;
-            visitor::SemanticAnalyser semantic_analyser(&temp);
-            semantic_analyser.visit(prog);
+//            visitor::SemanticScope temp;
+//            visitor::SemanticAnalyser semantic_analyser(&temp);
+//            semantic_analyser.visit(prog);
 
             // If this succeeds, perform semantic analysis modifying global scope
-            semantic_analyser = visitor::SemanticAnalyser(&semantic_global_scope);
+            auto semantic_analyser = visitor::SemanticAnalyser(&semantic_global_scope);
             semantic_analyser.visit(prog);
 
             // Interpreter
