@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>MiniLang Compiler: MiniLang: A Compiler Written in C++</title>
+<title>MiniLang Interpreter: MiniLang: An Interpreter Written in C++</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,8 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MiniLang Compiler
+   <div id="projectname">MiniLang Interpreter
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
+   <div id="projectbrief">Interpreter and REPL for a simple programming language written in C++</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -59,6 +70,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,36 +100,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">MiniLang: A Compiler Written in C++ </div>  </div>
+<div class="title">MiniLang: An Interpreter Written in C++ </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This compiler and REPL software were developed as part of a programming assignment for <a href="https://www.um.edu.mt/courses/studyunit/CPS2000">CPS2000: Compiler Theory and Practice</a>, a course forming part of my B.Sc. in Mathematics and Computer Science.</p>
-<p>The following code showcases some valid MiniLang syntax. </p><pre class="fragment">def square(x : real) : real {
-    return x∗x;
+<div class="textblock"><p>This interpreter and REPL software were developed as part of a programming assignment for <a href="https://www.um.edu.mt/courses/studyunit/CPS2000">CPS2000: Compiler Theory and Practice</a>, a course forming part of my B.Sc. in Mathematics and Computer Science.</p>
+<div class="image">
+<img src="repl.gif" alt="repl.gif"/>
+<div class="caption">
+Use of MiniLang REPL</div></div>
+<h2>The MiniLang Language</h2>
+<p>Minilang is an expression-oriented strongly-typed programming language. The language supports C-style comments, that is, <code>//...</code> for single-line comments and <code>/*...*/</code> for multiline comments, is case-sensitive, and every function is expected to return a value. There are four datatypes in the language: <code>int</code> for integer values, <code>real</code> for floating point numbers, <code>bool</code> for boolean values and <code>string</code> for string literals. The language detects when integer values are assigned to real variables and performs an automatic typecast, except for the case of function parameters. For example, the function call <code>f(1)</code> would be invalid if the <code>f</code> expects a <code>real</code> argument, so we must write <code>f(1.0)</code> or <code>f(1.)</code>. In turn, this strictness allows for multiple functions of the same name to be defined within the same scope, provided they have different signature. MiniLang supports variable shadowing.</p>
+<p>The following code listing showcases some of MiniLang's syntax. </p><pre class="fragment">def square(x : real) : real {
+    return x*x;
 }
 
-def is_greater_than(x : real, y : real) : bool {
-    var ans : bool = true;
-    if (y &gt; x) {
-       set ans = false;
-    }
-    return ans;
+def repeat_string(s : string, n : int) : string {
+   /* Repeats string s, n times */
+   var s_rep : string = "";
+   while(n &gt; 0){
+      set s_rep = s_rep + s;
+      set n = n - 1;
+   }
+   return s_rep;
 }
 
 def fac(n : int) : int {
-   if (n == 0) { 
-       return 1; 
-   }
-   else {
-       return n * fac(n-1); 
-   }
+   /* Recursive factorial */
+   if (n == 0) { return 1; }
+   else { return n * fac(n-1); }
 }
 
-var x : real = 2.4;
-var y : real = square(2.5);
-print y;                                         /* 6.25 */
-print is_greater_than(x, fac(3));                // false
-print is_greater_than(x, square(1.5));           // true
+print fac(5) - square(5.);             // 95
+print repeat_string("Hello", 10);  
+print square(fac(5)+0.);               // 14400
+
+def f(x : int) : int {
+   def g(x : int) : int {
+      // the x outside is shadowed by the argument x
+      set x = 2*x;
+      return x + 3;
+   }
+   return g(x) + 7;
+}
+
+print f(5);                           // 20
 </pre><h3>MiniLang Production Rules in Extended BNF</h3>
 <p>The following extended BNF production rules describe the entire grammar of MiniLang. </p><pre class="fragment">‹program›           = { ‹statement› } 
 
@@ -155,12 +194,50 @@ print is_greater_than(x, square(1.5));           // true
 
 ‹function-call›     = ‹identifier› "(" [‹actual-params›] ")"
 
-‹actual-params›     = ‹expression› { "," ‹expression› }</pre> </div></div><!-- contents -->
+‹actual-params›     = ‹expression› { "," ‹expression› }
+
+‹relational-op›     = "&lt;" | "&gt;" | "==" | "!=" | "&lt;=" | "&gt;="
+
+‹additive-op›       = "+" | "-" | "or"
+
+‹multiplicative-op› = "*" | "/" | "and"
+
+‹identifier›        = ( "_" | ‹letter› ) { "_" | ‹letter› | ‹digit› }
+
+‹literal›           = ‹int-literal›
+                    | ‹real-literal›
+                    | ‹bool-literal›
+                    | ‹string-literal›
+
+‹int-literal›       = ‹digit› { ‹digit› }
+
+‹real-literal›      = ‹digit› { ‹digit› } "." { ‹digit› }
+                    | "." ‹digit› { ‹digit› }
+
+‹bool-literal›      = "true" | "false"
+
+‹string-literal›    = "“" { ‹printable› } "”"
+
+‹printable›         = ‹digit› | ‹letter› | " " | "!" | """ | "#" | "$" | "%" | "&amp;" 
+                    | "'" | "(" | ")" | "*" | "+" | "," | "-" | "." | "/" | ":" | ";" 
+                    | "&lt;" | "=" | "&gt;" | "?" | "@" | "[" | "\" | "]" | "^" | "_" | "`" 
+                    | "{" | "|" | "}" | "~"
+
+‹letter›            = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" 
+                    | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" 
+                    | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d" | "e" | "f" | "g" 
+                    | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" 
+                    | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" 
+
+‹digit›             = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"</pre> </div></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>

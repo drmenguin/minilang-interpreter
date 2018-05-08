@@ -1,6 +1,0 @@
-<map id="parser::ASTWhileNode" name="parser::ASTWhileNode">
-<area shape="rect" id="node2" href="$d6/d89/classparser_1_1_a_s_t_statement_node.html" title="parser::ASTStatementNode" alt="" coords="6,81,189,108"/>
-<area shape="rect" id="node5" href="$d2/d18/classparser_1_1_a_s_t_block_node.html" title="parser::ASTBlockNode" alt="" coords="22,183,178,209"/>
-<area shape="rect" id="node3" href="$db/df3/classparser_1_1_a_s_t_node.html" title="parser::ASTNode" alt="" coords="124,5,247,32"/>
-<area shape="rect" id="node4" href="$da/d6d/classparser_1_1_a_s_t_expr_node.html" title="parser::ASTExprNode" alt="" coords="152,132,302,159"/>
-</map>

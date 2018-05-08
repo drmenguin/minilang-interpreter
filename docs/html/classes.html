@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>MiniLang Compiler: Class Index</title>
+<title>MiniLang Interpreter: Class Index</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,8 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MiniLang Compiler
+   <div id="projectname">MiniLang Interpreter
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
+   <div id="projectbrief">Interpreter and REPL for a simple programming language written in C++</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -67,6 +78,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classes.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,32 +111,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Class Index</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_V">V</a>&#160;|&#160;<a class="qindex" href="#letter_X">X</a></div>
+<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_S">S</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_V">V</a>&#160;|&#160;<a class="qindex" href="#letter_X">X</a></div>
 <table class="classindex">
 <tr><td rowspan="2" valign="bottom"><a name="letter_A"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;A&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="d5/de6/classparser_1_1_a_s_t_function_call_node.html">ASTFunctionCallNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d5/db5/classparser_1_1_a_s_t_program_node.html">ASTProgramNode</a> (parser)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_P"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;P&#160;&#160;</div></td></tr></table>
+</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_identifier_node.html">ASTIdentifierNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_while_node.html">ASTWhileNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_S"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;S&#160;&#160;</div></td></tr></table>
 </td><td rowspan="2" valign="bottom"><a name="letter_X"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;X&#160;&#160;</div></td></tr></table>
 </td></tr>
-<tr><td valign="top"><a class="el" href="d0/dae/classparser_1_1_a_s_t_function_definition_node.html">ASTFunctionDefinitionNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d2/d69/classparser_1_1_a_s_t_return_node.html">ASTReturnNode</a> (parser)&#160;&#160;&#160;</td></tr>
-<tr><td valign="top"><a class="el" href="de/df0/classparser_1_1_a_s_t_assignment_node.html">ASTAssignmentNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="dc/db0/classparser_1_1_a_s_t_identifier_node.html">ASTIdentifierNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d6/d89/classparser_1_1_a_s_t_statement_node.html">ASTStatementNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d6/d95/classparser_1_1_parser.html">Parser</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d0/db5/classvisitor_1_1_x_m_l_visitor.html">XMLVisitor</a> (visitor)&#160;&#160;&#160;</td></tr>
-<tr><td valign="top"><a class="el" href="df/d07/classparser_1_1_a_s_t_binary_expr_node.html">ASTBinaryExprNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="da/dc5/classparser_1_1_a_s_t_if_node.html">ASTIfNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="dc/d52/classparser_1_1_a_s_t_unary_expr_node.html">ASTUnaryExprNode</a> (parser)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_T"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;T&#160;&#160;</div></td></tr></table>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_if_node.html">ASTIfNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_I"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;I&#160;&#160;</div></td></tr></table>
+</td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_assignment_node.html">ASTAssignmentNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_literal_node.html">ASTLiteralNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classvisitor_1_1_semantic_analyser.html">SemanticAnalyser</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classvisitor_1_1_x_m_l_visitor.html">XMLVisitor</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_binary_expr_node.html">ASTBinaryExprNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_node.html">ASTNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classvisitor_1_1_interpreter.html">Interpreter</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classvisitor_1_1_semantic_scope.html">SemanticScope</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_v"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;v&#160;&#160;</div></td></tr></table>
+</td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_block_node.html">ASTBlockNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_print_node.html">ASTPrintNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classvisitor_1_1_interpreter_scope.html">InterpreterScope</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_T"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;T&#160;&#160;</div></td></tr></table>
+</td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_declaration_node.html">ASTDeclarationNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_program_node.html">ASTProgramNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_L"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;L&#160;&#160;</div></td></tr></table>
+</td><td valign="top"><a class="el" href="structvisitor_1_1v_t.html">vT</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_expr_node.html">ASTExprNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_return_node.html">ASTReturnNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_text_table.html">TextTable</a>&#160;&#160;&#160;</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_function_call_node.html">ASTFunctionCallNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_statement_node.html">ASTStatementNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classlexer_1_1_lexer.html">Lexer</a> (<a class="el" href="namespacelexer.html">lexer</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classlexer_1_1_token.html">Token</a> (<a class="el" href="namespacelexer.html">lexer</a>)&#160;&#160;&#160;</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="classparser_1_1_a_s_t_function_definition_node.html">ASTFunctionDefinitionNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classparser_1_1_a_s_t_unary_expr_node.html">ASTUnaryExprNode</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_P"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;P&#160;&#160;</div></td></tr></table>
+</td><td rowspan="2" valign="bottom"><a name="letter_V"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;V&#160;&#160;</div></td></tr></table>
 </td><td></td></tr>
-<tr><td valign="top"><a class="el" href="d2/d18/classparser_1_1_a_s_t_block_node.html">ASTBlockNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d4/d9a/classparser_1_1_a_s_t_literal_node.html">ASTLiteralNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="da/d5a/classparser_1_1_a_s_t_while_node.html">ASTWhileNode</a> (parser)&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="d6/d68/classparser_1_1_a_s_t_declaration_node.html">ASTDeclarationNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="db/df3/classparser_1_1_a_s_t_node.html">ASTNode</a> (parser)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_L"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;L&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="d6/db3/classlexer_1_1_token.html">Token</a> (lexer)&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="da/d6d/classparser_1_1_a_s_t_expr_node.html">ASTExprNode</a> (parser)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="d8/d96/classparser_1_1_a_s_t_print_node.html">ASTPrintNode</a> (parser)&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_V"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;V&#160;&#160;</div></td></tr></table>
-</td><td></td></tr>
-<tr><td></td><td></td><td valign="top"><a class="el" href="db/d12/classlexer_1_1_lexer.html">Lexer</a> (lexer)&#160;&#160;&#160;</td><td></td></tr>
-<tr><td></td><td></td><td></td><td valign="top"><a class="el" href="d2/df4/classvisitor_1_1_visitor.html">Visitor</a> (visitor)&#160;&#160;&#160;</td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td valign="top"><a class="el" href="classparser_1_1_parser.html">Parser</a> (<a class="el" href="namespaceparser.html">parser</a>)&#160;&#160;&#160;</td><td valign="top"><a class="el" href="classvisitor_1_1_visitor.html">Visitor</a> (<a class="el" href="namespacevisitor.html">visitor</a>)&#160;&#160;&#160;</td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
-<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_V">V</a>&#160;|&#160;<a class="qindex" href="#letter_X">X</a></div>
+<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_P">P</a>&#160;|&#160;<a class="qindex" href="#letter_S">S</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_V">V</a>&#160;|&#160;<a class="qindex" href="#letter_X">X</a></div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>

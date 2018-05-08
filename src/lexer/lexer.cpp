@@ -1,7 +1,7 @@
-//
-// Created by lukec on 05/03/2018.
-//
-
+/**
+ * @file lexer.cpp
+ * Implements the functions in lexer.h
+ */
 #include <stack>
 #include <stdexcept>
 #include <iostream>
@@ -32,7 +32,8 @@ Token Lexer::next_token() {
 
 int Lexer::transition_delta(int s, char sigma) {
 
-    /* Check which transition type we have, and then refer to the
+    /*
+     * Check which transition type we have, and then refer to the
      * transition table.
      */
     switch(sigma){

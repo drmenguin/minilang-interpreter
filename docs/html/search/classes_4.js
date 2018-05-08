@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['visitor',['Visitor',['../d2/df4/classvisitor_1_1_visitor.html',1,'visitor']]]
+  ['semanticanalyser',['SemanticAnalyser',['../classvisitor_1_1_semantic_analyser.html',1,'visitor']]],
+  ['semanticscope',['SemanticScope',['../classvisitor_1_1_semantic_scope.html',1,'visitor']]]
 ];

@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>MiniLang Compiler: Class Members - Functions</title>
+<title>MiniLang Interpreter: Class Members - Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,8 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MiniLang Compiler
+   <div id="projectname">MiniLang Interpreter
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
+   <div id="projectbrief">Interpreter and REPL for a simple programming language written in C++</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -70,9 +81,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_v"><span>v</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
+      <li><a href="#index_x"><span>x</span></a></li>
+      <li class="current"><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_func.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,17 +139,355 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>accept()
+: <a class="el" href="classparser_1_1_a_s_t_assignment_node.html#a6159ec70e03a0721060da1672beaec76">parser::ASTAssignmentNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_binary_expr_node.html#ac8738971842eac8a2002db0b6f60dddb">parser::ASTBinaryExprNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_block_node.html#a8a3a0f16a4d94cd1bb5c692b347964bf">parser::ASTBlockNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_declaration_node.html#aed0386bf2a546646d6e1058f4276161b">parser::ASTDeclarationNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_expr_node.html#adbc988c4463862c0e2aea78a7928f891">parser::ASTExprNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_function_call_node.html#a82220ebc02d9df075f9b335d68027cc0">parser::ASTFunctionCallNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_function_definition_node.html#a2f8e9bc8f3cded9b4560922597448675">parser::ASTFunctionDefinitionNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_identifier_node.html#a6b97b1fd99d3e0359a2b59a4f9c809aa">parser::ASTIdentifierNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_if_node.html#a23503c15c53466e3f7dc69b99713a2d6">parser::ASTIfNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_literal_node.html#a660de87957167d74d68c4449ea575e00">parser::ASTLiteralNode&lt; T &gt;</a>
+, <a class="el" href="classparser_1_1_a_s_t_node.html#af35b6170826f8a82f487869609f9e457">parser::ASTNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_print_node.html#a21595b36b21bc58bc07373df65321f59">parser::ASTPrintNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_program_node.html#a1f724475ba431f82d329268e32671f7f">parser::ASTProgramNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_return_node.html#a93d9a5bb419f0cfee3a06a80a6e69260">parser::ASTReturnNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_statement_node.html#a462d9e8303ba21590eea1df597e5d92b">parser::ASTStatementNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_unary_expr_node.html#a7d56099d3c0841a17f3c68c54a23e1e0">parser::ASTUnaryExprNode</a>
+, <a class="el" href="classparser_1_1_a_s_t_while_node.html#a140589d391570ef32ed8bf10d830cc46">parser::ASTWhileNode</a>
+</li>
+<li>add()
+: <a class="el" href="class_text_table.html#adcb12fff145ebe7153ed0f69201d2b62">TextTable</a>
+</li>
+<li>addRow()
+: <a class="el" href="class_text_table.html#a7cd2de95bab3275d6a611e7a3443c746">TextTable</a>
+</li>
+<li>alignment()
+: <a class="el" href="class_text_table.html#a736df1d9079b0f8efb8ec4ed0f74be08">TextTable</a>
+</li>
+<li>already_declared()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#a73fe9816588d16db38868fdbb4674a18">visitor::InterpreterScope</a>
+, <a class="el" href="classvisitor_1_1_semantic_scope.html#a11ad26e09d607a54b712b85163afa8c2">visitor::SemanticScope</a>
+</li>
+<li>ASTAssignmentNode()
+: <a class="el" href="classparser_1_1_a_s_t_assignment_node.html#ac89b9f6406bbe58843606753039ae054">parser::ASTAssignmentNode</a>
+</li>
+<li>ASTBinaryExprNode()
+: <a class="el" href="classparser_1_1_a_s_t_binary_expr_node.html#a65c6502a3363af0141755508d6a5905f">parser::ASTBinaryExprNode</a>
+</li>
+<li>ASTBlockNode()
+: <a class="el" href="classparser_1_1_a_s_t_block_node.html#aca719f781cb3cdc90a5c71f504c84557">parser::ASTBlockNode</a>
+</li>
+<li>ASTDeclarationNode()
+: <a class="el" href="classparser_1_1_a_s_t_declaration_node.html#a66f644b52a8aa625e1b414d651aa538f">parser::ASTDeclarationNode</a>
+</li>
+<li>ASTFunctionCallNode()
+: <a class="el" href="classparser_1_1_a_s_t_function_call_node.html#aeeb43bd5cf239c098494d5e18e78734d">parser::ASTFunctionCallNode</a>
+</li>
+<li>ASTFunctionDefinitionNode()
+: <a class="el" href="classparser_1_1_a_s_t_function_definition_node.html#a1d142c30b0cc0b0484f9e95da67560e6">parser::ASTFunctionDefinitionNode</a>
+</li>
+<li>ASTIdentifierNode()
+: <a class="el" href="classparser_1_1_a_s_t_identifier_node.html#abea572d0509dd91a77dd0ab506bb432d">parser::ASTIdentifierNode</a>
+</li>
+<li>ASTIfNode()
+: <a class="el" href="classparser_1_1_a_s_t_if_node.html#a45c4304d63e47e8c5ee5c03c90fe98f3">parser::ASTIfNode</a>
+</li>
+<li>ASTLiteralNode()
+: <a class="el" href="classparser_1_1_a_s_t_literal_node.html#a0ffefbd89d01464b9a10a28ce9922702">parser::ASTLiteralNode&lt; T &gt;</a>
+</li>
+<li>ASTPrintNode()
+: <a class="el" href="classparser_1_1_a_s_t_print_node.html#a3ff05ff051f6f16f176494bb76d15808">parser::ASTPrintNode</a>
+</li>
+<li>ASTProgramNode()
+: <a class="el" href="classparser_1_1_a_s_t_program_node.html#a7a0f0b24e28be2d3259a8620d1f06e88">parser::ASTProgramNode</a>
+</li>
+<li>ASTReturnNode()
+: <a class="el" href="classparser_1_1_a_s_t_return_node.html#a79640b185fe9c37766561438f4ae3baa">parser::ASTReturnNode</a>
+</li>
+<li>ASTUnaryExprNode()
+: <a class="el" href="classparser_1_1_a_s_t_unary_expr_node.html#acbb76239a4cdb3b5244d2aa0874ebf0b">parser::ASTUnaryExprNode</a>
+</li>
+<li>ASTWhileNode()
+: <a class="el" href="classparser_1_1_a_s_t_while_node.html#a8fa2b147dc5f6480c4fb9c3916514090">parser::ASTWhileNode</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>block_of()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#ae2c4bf0377cde664af6ea669bb5cd56a">visitor::InterpreterScope</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>columns()
+: <a class="el" href="class_text_table.html#aeb198be37a725e173dc1f900634f3dcd">TextTable</a>
+</li>
+<li>consume_token()
+: <a class="el" href="classparser_1_1_parser.html#a32114f204927e21045d00f4cee0e0637">parser::Parser</a>
+</li>
+<li>current_expr()
+: <a class="el" href="classvisitor_1_1_interpreter.html#a689724e96304d42757dfcb911187a8c9">visitor::Interpreter</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>declaration_line()
+: <a class="el" href="classvisitor_1_1_semantic_scope.html#a3b41fbf24d7315ca44033bc1b3c6ecd1">visitor::SemanticScope</a>
+</li>
+<li>declare()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#a53b56f19e5f2c15bcafa1539e18686a6">visitor::InterpreterScope</a>
+, <a class="el" href="classvisitor_1_1_semantic_scope.html#aef20f8edd062d4b6871e09cccdc9ddca">visitor::SemanticScope</a>
+</li>
+<li>determine_token_type()
+: <a class="el" href="classlexer_1_1_token.html#a5b62db354b808357224c70e37bd9e1f6">lexer::Token</a>
+</li>
+<li>determineWidths()
+: <a class="el" href="class_text_table.html#a56d37f1af67529bd1e0df35f80503c01">TextTable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>endOfRow()
+: <a class="el" href="class_text_table.html#a7916848a5d1e82047115f00ff8b86ad8">TextTable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>function_list()
+: <a class="el" href="classvisitor_1_1_semantic_scope.html#a9dcc2d07f610d37c093c657febf633e4">visitor::SemanticScope</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get_line_number()
+: <a class="el" href="classlexer_1_1_lexer.html#acf8d7fb868b5c2ec515575e728104ac2">lexer::Lexer</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>horizontal()
+: <a class="el" href="class_text_table.html#a45d5cd463811c786384a3810e2bd17c6">TextTable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>indentation()
+: <a class="el" href="classvisitor_1_1_x_m_l_visitor.html#a4e8879629cce429d543156f4b5f257be">visitor::XMLVisitor</a>
+</li>
+<li>Interpreter()
+: <a class="el" href="classvisitor_1_1_interpreter.html#a74937c83f9b611d8690c4652f1553215">visitor::Interpreter</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>Lexer()
-: <a class="el" href="db/d12/classlexer_1_1_lexer.html#a7db80e07ac777e4296fba334db68bdb6">lexer::Lexer</a>
+: <a class="el" href="classlexer_1_1_lexer.html#a7db80e07ac777e4296fba334db68bdb6">lexer::Lexer</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>next_token()
+: <a class="el" href="classlexer_1_1_lexer.html#a7fcfd2eb03ec5b00bda2b7722d42f68c">lexer::Lexer</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>parse_actual_params()
+: <a class="el" href="classparser_1_1_parser.html#a35bc2a37246b9face93a4430298e7d4c">parser::Parser</a>
+</li>
+<li>parse_assignment_statement()
+: <a class="el" href="classparser_1_1_parser.html#aa93391a760c49c33eac62af7f5202f66">parser::Parser</a>
+</li>
+<li>parse_block()
+: <a class="el" href="classparser_1_1_parser.html#a8a5234e9d8fa19696c91677cc36f81b9">parser::Parser</a>
+</li>
+<li>parse_declaration_statement()
+: <a class="el" href="classparser_1_1_parser.html#aec67c76e31fd3dec1e0e2d3ccebc5078">parser::Parser</a>
+</li>
+<li>parse_expression()
+: <a class="el" href="classparser_1_1_parser.html#affa7bef6fdd22e8683bb7393afa088f2">parser::Parser</a>
+</li>
+<li>parse_factor()
+: <a class="el" href="classparser_1_1_parser.html#a9884d98636796326303a7bdd53bdd58d">parser::Parser</a>
+</li>
+<li>parse_formal_param()
+: <a class="el" href="classparser_1_1_parser.html#aa308eceeab0b4e7e612b0f2c64358fc8">parser::Parser</a>
+</li>
+<li>parse_function_call()
+: <a class="el" href="classparser_1_1_parser.html#acad8b14bf1baf75f9e87ea07edfdf23d">parser::Parser</a>
+</li>
+<li>parse_function_definition()
+: <a class="el" href="classparser_1_1_parser.html#a952a5827c457974b4fd7e0e51f73cb23">parser::Parser</a>
+</li>
+<li>parse_if_statement()
+: <a class="el" href="classparser_1_1_parser.html#a17b77cf2e3e86ce43248bd8272bf2595">parser::Parser</a>
+</li>
+<li>parse_print_statement()
+: <a class="el" href="classparser_1_1_parser.html#aed4b9a47364783afd65fc6ea5443a649">parser::Parser</a>
+</li>
+<li>parse_program()
+: <a class="el" href="classparser_1_1_parser.html#a7ff8c16d60467575c25dd76698f6874a">parser::Parser</a>
+</li>
+<li>parse_return_statement()
+: <a class="el" href="classparser_1_1_parser.html#a674c7eb4c160430b9227d97286b76af2">parser::Parser</a>
+</li>
+<li>parse_simple_expression()
+: <a class="el" href="classparser_1_1_parser.html#a1e15023684d029e939526a55554b029e">parser::Parser</a>
+</li>
+<li>parse_statement()
+: <a class="el" href="classparser_1_1_parser.html#af589d27b31a4e81317cd9259aa35d02f">parser::Parser</a>
+</li>
+<li>parse_term()
+: <a class="el" href="classparser_1_1_parser.html#aa8da2ddee8cfc1ecce9919c351338be2">parser::Parser</a>
+</li>
+<li>parse_type()
+: <a class="el" href="classparser_1_1_parser.html#a28c93705a2651cc794b00a3c6e2d0a84">parser::Parser</a>
+</li>
+<li>parse_while_statement()
+: <a class="el" href="classparser_1_1_parser.html#a87fb8f7bdbd20a5e33fb228e089d2dd5">parser::Parser</a>
+</li>
+<li>Parser()
+: <a class="el" href="classparser_1_1_parser.html#aac5dfbecff83c0f9306b3bf31e90b33e">parser::Parser</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>repeat()
+: <a class="el" href="class_text_table.html#a972e57210f6c9166ae330d019824fd47">TextTable</a>
+</li>
+<li>returns()
+: <a class="el" href="classvisitor_1_1_semantic_analyser.html#a2f385b2b9c8cb6e1552f50ad435c41d1">visitor::SemanticAnalyser</a>
+</li>
+<li>rows()
+: <a class="el" href="class_text_table.html#ab02e2cf4c08325deef938eb631f2a566">TextTable</a>
+</li>
+<li>ruler()
+: <a class="el" href="class_text_table.html#adcf9cfd36ff9940ddd1708da70c955d8">TextTable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SemanticAnalyser()
+: <a class="el" href="classvisitor_1_1_semantic_analyser.html#afeecf6c35d27f7607a44c12a1f4a227d">visitor::SemanticAnalyser</a>
+</li>
+<li>setAlignment()
+: <a class="el" href="class_text_table.html#a185c3b20536bb11bb4928272cd1e3902">TextTable</a>
+</li>
+<li>setup()
+: <a class="el" href="class_text_table.html#a966966bcdc3390b2ceae580160590e2a">TextTable</a>
+</li>
+<li>setupAlignment()
+: <a class="el" href="class_text_table.html#a5159bd856a15742cd742bf9d37191af2">TextTable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>TextTable()
+: <a class="el" href="class_text_table.html#a3d46d3c486657fbc3bb8762c4a025890">TextTable</a>
+</li>
+<li>Token()
+: <a class="el" href="classlexer_1_1_token.html#aa3c5868ba4115f3189df6b2ac5b36f39">lexer::Token</a>
+</li>
+<li>transition_delta()
+: <a class="el" href="classlexer_1_1_lexer.html#a4847ca555d4c2f1c40a590a2a7c89f28">lexer::Lexer</a>
+</li>
+<li>type()
+: <a class="el" href="classvisitor_1_1_semantic_scope.html#afc22baf07838f699045acedf88e776df">visitor::SemanticScope</a>
+</li>
+<li>type_of()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#ae5b3598861ec89db59d4ccdf961618fe">visitor::InterpreterScope</a>
+</li>
+<li>type_str()
+: <a class="el" href="classvisitor_1_1_x_m_l_visitor.html#a37ecb0ea9ec0147a5f48f18b912c9241">visitor::XMLVisitor</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
+<li>value_of()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#a4c3582a53c71a0a9e15db58d1487bdb9">visitor::InterpreterScope</a>
+</li>
+<li>variable_list()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#a5fee79443d1543dcb4061df8eab0e57c">visitor::InterpreterScope</a>
+</li>
+<li>variable_names_of()
+: <a class="el" href="classvisitor_1_1_interpreter_scope.html#ab5f77782d63c36b1007b00f9609138df">visitor::InterpreterScope</a>
+</li>
+<li>vertical()
+: <a class="el" href="class_text_table.html#a71e4f313198eaf0df2b52e7311f892fb">TextTable</a>
+</li>
+<li>visit()
+: <a class="el" href="classvisitor_1_1_interpreter.html#ad0a03a10456a0070234e96bf01d56994">visitor::Interpreter</a>
+, <a class="el" href="classvisitor_1_1_semantic_analyser.html#a0e9f90a084cd1f281fcefc99fafb3361">visitor::SemanticAnalyser</a>
+, <a class="el" href="classvisitor_1_1_visitor.html#a047e2a7d451555ae993947241af5f9f6">visitor::Visitor</a>
+, <a class="el" href="classvisitor_1_1_x_m_l_visitor.html#a93c7cdabfdbab224b26873034d908c17">visitor::XMLVisitor</a>
+</li>
+<li>vT()
+: <a class="el" href="structvisitor_1_1v_t.html#ab32d3ddfd52aeeadb9526dfd910109ce">visitor::vT</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>width()
+: <a class="el" href="class_text_table.html#ae398acfe37f0bb0ea460022f9d479678">TextTable</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
+<li>xml_safe_op()
+: <a class="el" href="classvisitor_1_1_x_m_l_visitor.html#afba3eeededa4126c1e9fe3c97b208dd2">visitor::XMLVisitor</a>
+</li>
+<li>XMLVisitor()
+: <a class="el" href="classvisitor_1_1_x_m_l_visitor.html#a7cc81f423897c8fb314a94b37da9c7a8">visitor::XMLVisitor</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~Interpreter()
+: <a class="el" href="classvisitor_1_1_interpreter.html#a0f96b57f8126e2b5bc63390121e4b5b1">visitor::Interpreter</a>
+</li>
+<li>~Lexer()
+: <a class="el" href="classlexer_1_1_lexer.html#ad26a84af23d8d303723e36e83fc4e556">lexer::Lexer</a>
+</li>
+<li>~SemanticAnalyser()
+: <a class="el" href="classvisitor_1_1_semantic_analyser.html#a0667e7cf38e0defb37d6460dc9d006e8">visitor::SemanticAnalyser</a>
+</li>
+<li>~XMLVisitor()
+: <a class="el" href="classvisitor_1_1_x_m_l_visitor.html#a712679059cc4379bdb91c68521414ec9">visitor::XMLVisitor</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>
