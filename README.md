@@ -5,7 +5,7 @@ This interpreter and REPL software were developed as part of a programming assig
 
 ![Use of MiniLang REPL](images/repl.gif) 
 
-## The MiniLang Language
+# The MiniLang Language
 
 Minilang is an expression-oriented strongly-typed programming language. The language supports C-style comments, that is, `//...` for single-line comments and `/*...*/` for multiline comments, is case-sensitive, and every function is expected to return a value. There are four datatypes in the language: `int` for integer values, `real` for floating point numbers, `bool` for boolean values and `string` for string literals. The language detects when integer values are assigned to real variables and performs an automatic typecast, except for the case of function parameters. For example, the function call `f(1)` would be invalid if the `f` expects a `real` argument, so we must write `f(1.0)` or `f(1.)`.  In turn, this strictness allows for multiple functions of the same name to be defined within the same scope, provided they have different signature. MiniLang supports variable shadowing.
     
@@ -137,7 +137,16 @@ The following extended BNF production rules describe the entire grammar of MiniL
 
     ‹digit›             = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
+# Instructions
+The source files can be built using [CMake](https://cmake.org/download/) and the `CMakeLists.txt` file provided in the root directory. In a terminal, navigate to the root directory and run
 
+    cmake .
+    make
+    ./minilang
 
+to compile and execute the REPL.
 
+# Documentation
+A report describing the design process and motivation behind the interpreter is present in the root directory, filename `report.pdf`.
 
+Detailed technical documentation of the source code can be found in the `docs` directory. Visit [this](https://cdn.rawgit.com/drmenguin/minilang-interpreter/master/docs/html/index.html) webpage to view the documentation in your browser, or pull the repository, navigate to the `docs` directory and open `index.html` for individual descriptions of the functions, classes and attributes in the project.

@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <img src="repl.gif" alt="repl.gif"/>
 <div class="caption">
 Use of MiniLang REPL</div></div>
-<h2>The MiniLang Language</h2>
+<h1>The MiniLang Language</h1>
 <p>Minilang is an expression-oriented strongly-typed programming language. The language supports C-style comments, that is, <code>//...</code> for single-line comments and <code>/*...*/</code> for multiline comments, is case-sensitive, and every function is expected to return a value. There are four datatypes in the language: <code>int</code> for integer values, <code>real</code> for floating point numbers, <code>bool</code> for boolean values and <code>string</code> for string literals. The language detects when integer values are assigned to real variables and performs an automatic typecast, except for the case of function parameters. For example, the function call <code>f(1)</code> would be invalid if the <code>f</code> expects a <code>real</code> argument, so we must write <code>f(1.0)</code> or <code>f(1.)</code>. In turn, this strictness allows for multiple functions of the same name to be defined within the same scope, provided they have different signature. MiniLang supports variable shadowing.</p>
 <p>The following code listing showcases some of MiniLang's syntax. </p><pre class="fragment">def square(x : real) : real {
     return x*x;
@@ -229,7 +229,16 @@ print f(5);                           // 20
                     | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" 
                     | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" 
 
-‹digit›             = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"</pre> </div></div><!-- contents -->
+‹digit›             = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+</pre><h1>Instructions</h1>
+<p>The source files can be built using <a href="https://cmake.org/download/">CMake</a> and the <code>CMakeLists.txt</code> file provided in the root directory. In a terminal, navigate to the root directory and run </p><pre class="fragment">cmake .
+make
+./minilang
+</pre><p>to compile and execute the REPL.</p>
+<h1>Documentation</h1>
+<p>A report describing the design process and motivation behind the interpreter is present in the root directory, filename <code>report.pdf</code>.</p>
+<p>Detailed technical documentation of the source code can be found in the <code>docs</code> directory. Visit <a href="https://cdn.rawgit.com/drmenguin/minilang-interpreter/master/docs/html/index.html">this</a> webpage to view the documentation in your browser, or pull the repository, navigate to the <code>docs</code> directory and open <code>index.html</code> for individual descriptions of the functions, classes and attributes in the project. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

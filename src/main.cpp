@@ -10,6 +10,11 @@
 #include "visitor/interpreter.h"
 #include "table/table.h"
 
+/**
+ * The main function implements the REPL interface.
+ * The
+ * @return 0
+ */
 int main() {
 
     // REPL Greeting
