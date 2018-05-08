@@ -5,7 +5,11 @@ This interpreter and REPL software were developed as part of a programming assig
 
 ![REPL Example](images/repl.gif) 
 
-The following code showcases some valid MiniLang syntax. 
+## The MiniLang Language
+
+Minilang is an expression-based strongly typed-programming language. The language supports C-style comments, that is, `//...` for single-line comments and `/*...*/` for multiline comments. MiniLang is case-sensitive and every function is expected to return a value. There are four datatypes in the language: `int` for integer values, `real` for floating point numbers, `bool` for boolean values and `string` for string literals. The language detects when integer values are assigned to real variables and performs an automatic typecast, except for the case of function parameters. For example, the function call `f(1)` would be invalid if the `f` expects a `real` argument, one must enter `f(1.0)` or `f(1.)`. This in turn allows for multiple functions of the same name to be defined within the same scope, provided they have different signature. 
+    
+The following code listing showcases some of MiniLang's syntax. 
 
     def square(x : real) : real {
         return x*x;
@@ -42,7 +46,7 @@ The following code showcases some valid MiniLang syntax.
 
     print f(5);                           // 20
 
-    
+
 
 ### MiniLang Production Rules in Extended BNF
 The following extended BNF production rules describe the entire grammar of MiniLang.
