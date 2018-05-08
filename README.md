@@ -16,13 +16,13 @@ The following code listing showcases some of MiniLang's syntax.
     }
 
     def repeat_string(s : string, n : int) : string {
-      /* Repeats string s, n times */
-      var s_rep : string = "";
-      while(n > 0){
-         set s_rep = s_rep + s;
-         set n = n - 1;
-      }
-      return s_rep;
+       /* Repeats string s, n times */
+       var s_rep : string = "";
+       while(n > 0){
+          set s_rep = s_rep + s;
+          set n = n - 1;
+       }
+       return s_rep;
     }
     
     def fac(n : int) : int {
@@ -36,12 +36,12 @@ The following code listing showcases some of MiniLang's syntax.
     print square(fac(5)+0.);               // 14400
 
     def f(x : int) : int {
-      def g(x : int) : int {
-         // the x outside is shadowed by the argument x
-         set x = 2*x;
-         return x + 3;
-      }
-      return g(x) + 7;
+       def g(x : int) : int {
+          // the x outside is shadowed by the argument x
+          set x = 2*x;
+          return x + 3;
+       }
+       return g(x) + 7;
     }
 
     print f(5);                           // 20
@@ -128,7 +128,7 @@ The following extended BNF production rules describe the entire grammar of MiniL
 
     ‹letter›            = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" 
 
-    ‹digit›            = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+    ‹digit›             = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
 
 
