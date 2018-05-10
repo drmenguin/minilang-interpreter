@@ -87,8 +87,9 @@ parser::ASTBlockNode* InterpreterScope::block_of(std::string identifier, std::ve
 
     // Match given signature to function in multimap
     for (auto i = funcs.first; i != funcs.second; i++)
-        if(std::get<0>(i->second) == signature)
+        if(std::get<0>(i->second) == signature) {
             return std::get<2>(i->second);
+        }
 
     return nullptr;
 }
@@ -473,6 +474,7 @@ void visitor::Interpreter::visit(parser::ASTFunctionCallNode *func) {
 
     // Determine the signature of the function
     std::vector<parser::TYPE> signature;
+    std::vector<std::pair<parser::TYPE, value_t>> current_function_arguments;
 
     // For each parameter,
     for (auto param : func -> parameters) {
@@ -487,6 +489,10 @@ void visitor::Interpreter::visit(parser::ASTFunctionCallNode *func) {
         // used in the creation of the function scope
         current_function_arguments.emplace_back(current_expression_type, current_expression_value);
     }
+
+    // Update the global vector current_function_arguments
+    for(auto arg : current_function_arguments)
+        this->current_function_arguments.push_back(arg);
 
     // Determine in which scope the function is declared
     unsigned long i;

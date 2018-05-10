@@ -2,5 +2,5 @@
 <area shape="rect" id="node2" href="$ast_8h.html" title="ast.h" alt="" coords="79,80,130,107"/>
 <area shape="rect" id="node6" href="$lexer_8h.html" title="Contains the implementation of the table&#45;driven lexer. " alt="" coords="176,80,281,107"/>
 <area shape="rect" id="node5" href="$visitor_8h.html" title="../visitor/visitor.h" alt="" coords="24,155,142,181"/>
-<area shape="rect" id="node7" href="$token_8h.html" title="token.h" alt="" coords="300,155,365,181"/>
+<area shape="rect" id="node7" href="$token_8h.html" title="Contains the class Token, used to represent the tokens of the program string. " alt="" coords="300,155,365,181"/>
 </map>

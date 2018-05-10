@@ -5,7 +5,7 @@
 <area shape="rect" id="node14" href="$semantic__analysis_8h.html" title="visitor/semantic_analysis.h" alt="" coords="431,80,611,107"/>
 <area shape="rect" id="node17" href="$interpreter_8h.html" title="visitor/interpreter.h" alt="" coords="636,80,767,107"/>
 <area shape="rect" id="node18" href="$table_8h.html" title="table/table.h" alt="" coords="129,80,223,107"/>
-<area shape="rect" id="node9" href="$token_8h.html" title="token.h" alt="" coords="379,229,445,256"/>
+<area shape="rect" id="node9" href="$token_8h.html" title="Contains the class Token, used to represent the tokens of the program string. " alt="" coords="379,229,445,256"/>
 <area shape="rect" id="node11" href="$ast_8h.html" title="ast.h" alt="" coords="540,155,591,181"/>
 <area shape="rect" id="node12" href="$visitor_8h.html" title="../visitor/visitor.h" alt="" coords="626,229,745,256"/>
 </map>

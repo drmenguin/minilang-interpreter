@@ -15,6 +15,7 @@
  * The
  * @return 0
  */
+
 int main() {
 
     // REPL Greeting
@@ -206,13 +207,14 @@ int main() {
             xml_generator.visit(prog);
 
 
-            // Try to analyse in temporary scope
-//            visitor::SemanticScope temp;
-//            visitor::SemanticAnalyser semantic_analyser(&temp);
-//            semantic_analyser.visit(prog);
+            // Try to analyse in a temporary copy of the global scope (just in case
+            // the program is invalid)
+            visitor::SemanticScope temp = semantic_global_scope;
+            visitor::SemanticAnalyser temp_semantic_analyser(&temp);
+            temp_semantic_analyser.visit(prog);
 
             // If this succeeds, perform semantic analysis modifying global scope
-            auto semantic_analyser = visitor::SemanticAnalyser(&semantic_global_scope);
+            visitor::SemanticAnalyser semantic_analyser(&semantic_global_scope);
             semantic_analyser.visit(prog);
 
             // Interpreter

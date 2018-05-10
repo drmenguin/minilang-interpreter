@@ -1,7 +1,7 @@
-//
-// Created by lukec on 19/03/2018.
-//
-
+/**
+ * @file token.cpp
+ * Implements the functions in token.h
+ */
 #include "token.h"
 
 using namespace lexer;

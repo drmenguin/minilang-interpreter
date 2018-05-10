@@ -1,6 +1,7 @@
-//
-// Created by lukec on 19/03/2018.
-//
+/**
+ * @file token.h
+ * Contains the class Token, used to represent the tokens of the program string.
+ */
 
 #ifndef MINILANG_TOKEN_H
 #define MINILANG_TOKEN_H
@@ -9,6 +10,11 @@
 
 namespace lexer {
 
+    /*
+     * An enum containing token types.
+     * This enum encodes the possible token types as described in table 1.3
+     * in the report.
+     */
     enum TOKEN {
         TOK_INT,
         TOK_REAL,
@@ -44,6 +50,10 @@ namespace lexer {
         TOK_ERROR
     };
 
+    /**
+     * Represents individual token.
+     * The token class
+     */
     class Token {
 
         public:

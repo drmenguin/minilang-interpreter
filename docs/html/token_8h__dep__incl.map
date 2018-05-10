@@ -1,6 +1,6 @@
 <map id="src/lexer/token.h" name="src/lexer/token.h">
 <area shape="rect" id="node2" href="$lexer_8h.html" title="Contains the implementation of the table&#45;driven lexer. " alt="" coords="115,80,230,107"/>
-<area shape="rect" id="node7" href="$token_8cpp.html" title="src/lexer/token.cpp" alt="" coords="254,80,387,107"/>
+<area shape="rect" id="node7" href="$token_8cpp.html" title="Implements the functions in token.h. " alt="" coords="254,80,387,107"/>
 <area shape="rect" id="node3" href="$lexer_8cpp.html" title="Implements the functions in lexer.h. " alt="" coords="5,155,135,181"/>
 <area shape="rect" id="node4" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="124,229,221,256"/>
 <area shape="rect" id="node5" href="$parser_8h.html" title="src/parser/parser.h" alt="" coords="210,155,341,181"/>
