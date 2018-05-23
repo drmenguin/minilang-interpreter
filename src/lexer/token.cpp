@@ -1,6 +1,8 @@
 /**
  * @file token.cpp
  * Implements the functions in token.h
+  * @author Luke Collins
+ * @date 19/3/2018
  */
 #include "token.h"
 

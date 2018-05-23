@@ -1,6 +1,8 @@
 /**
  * @file token.h
  * Contains the class Token, used to represent the tokens of the program string.
+ * @author Luke Collins
+ * @date 19/3/2018
  */
 
 #ifndef MINILANG_TOKEN_H
@@ -51,8 +53,9 @@ namespace lexer {
     };
 
     /**
-     * Represents individual token.
-     * The token class
+     * Represents and individual token in the program.
+     * This class stores the token type and value, as well as the line number in
+     * which the token occurs (for error reporting).
      */
     class Token {
 

@@ -1,6 +1,8 @@
 /**
  * @file lexer.h
  * Contains the implementation of the table-driven lexer.
+ * @author Luke Collins
+ * @date 5/3/2018
  */
 #ifndef MINILANG_LEXER_H
 #define MINILANG_LEXER_H

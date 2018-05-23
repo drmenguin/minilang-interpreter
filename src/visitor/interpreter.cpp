@@ -368,8 +368,12 @@ void visitor::Interpreter::visit(parser::ASTBinaryExprNode *bin) {
                 v.i = l_value.i - r_value.i;
             else if(op == "*")
                 v.i = l_value.i * r_value.i;
-            else if(op == "/")
+            else if(op == "/") {
+                if(r_value.i == 0)
+                    throw std::runtime_error("Division by zero encountered on line "
+                                             + std::to_string(bin->line_number) + ".");
                 v.i = l_value.i / r_value.i;
+            }
         }
         // At least one real
         else if(l_type == parser::REAL || r_type == parser::REAL) {
@@ -385,8 +389,12 @@ void visitor::Interpreter::visit(parser::ASTBinaryExprNode *bin) {
                 v.r = l-r;
             else if(op == "*")
                 v.r = l*r;
-            else if(op == "/")
-                v.r = l/r;
+            else if(op == "/") {
+                if(r == 0)
+                    throw std::runtime_error("Division by zero encountered on line "
+                                             + std::to_string(bin->line_number) + ".");
+                v.r = l / r;
+            }
         }
         // Remaining case is for strings
         else {
@@ -485,14 +493,14 @@ void visitor::Interpreter::visit(parser::ASTFunctionCallNode *func) {
         // add the type of current expr to signature
         signature.push_back(current_expression_type);
 
-        // add the current expr to the global vector of function arguments, to be
+        // add the current expr to the local vector of function arguments, to be
         // used in the creation of the function scope
         current_function_arguments.emplace_back(current_expression_type, current_expression_value);
     }
 
     // Update the global vector current_function_arguments
     for(auto arg : current_function_arguments)
-        this->current_function_arguments.push_back(arg);
+        this -> current_function_arguments.push_back(arg);
 
     // Determine in which scope the function is declared
     unsigned long i;

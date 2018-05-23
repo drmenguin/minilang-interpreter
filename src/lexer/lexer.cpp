@@ -1,6 +1,8 @@
 /**
  * @file lexer.cpp
  * Implements the functions in lexer.h
+ * @author Luke Collins
+ * @date 5/3/2018
  */
 #include <stack>
 #include <stdexcept>

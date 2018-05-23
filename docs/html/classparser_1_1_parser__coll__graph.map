@@ -1,4 +1,4 @@
 <map id="parser::Parser" name="parser::Parser">
 <area shape="rect" id="node2" href="$classlexer_1_1_lexer.html" title="Implementation of a table&#45;driven lexer. " alt="" coords="5,5,96,32"/>
-<area shape="rect" id="node3" href="$classlexer_1_1_token.html" title="Represents individual token. " alt="" coords="121,5,215,32"/>
+<area shape="rect" id="node3" href="$classlexer_1_1_token.html" title="Represents and individual token in the program. " alt="" coords="121,5,215,32"/>
 </map>
