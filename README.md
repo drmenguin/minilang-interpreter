@@ -1,5 +1,6 @@
-
 # MiniLang: An Interpreter Written in C++
+[![Build Status](https://travis-ci.org/drmenguin/minilang-interpreter.svg?branch=master)](https://travis-ci.org/drmenguin/minilang-interpreter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This interpreter and REPL software were developed as part of a programming assignment for [CPS2000: Compiler Theory and Practice](https://www.um.edu.mt/courses/studyunit/CPS2000), a course forming part of my B.Sc. in Mathematics and Computer Science.
 
