@@ -1,19 +1,6 @@
 # Set language to C++
 language: cpp
 
-# Choose os and gcc versions
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-4.9
-      env:
-         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9
-
 # Newer cmake
 addons:
   apt:
@@ -23,9 +10,14 @@ addons:
       - cmake-data
       - cmake
 
-# Matrix evaluation
+# g++ version
 before_install:
-    - eval "${MATRIX_EVAL}"
+  - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get install -qq g++-5
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5
 
 # Build
 script:
