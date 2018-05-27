@@ -10,6 +10,9 @@ addons:
       - cmake-data
       - cmake
 
+# sudo for g++
+sudo: required
+
 # g++ version
 before_install:
   - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
