@@ -1,27 +1,13 @@
-# Set language to C++
+dist: trusty
 language: cpp
-
-# Newer cmake
 addons:
   apt:
     sources:
-      - george-edison55-precise-backports
+      - ubuntu-toolchain-r-test
     packages:
-      - cmake-data
-      - cmake
-
-# sudo for g++
-sudo: required
-
-# g++ version
-before_install:
-  - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo apt-get update -qq
-
-install:
-  - sudo apt-get install -qq g++-5
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5
-
-# Build
+      - gcc-7
+      - g++-7
 script:
+  - export CC=gcc-7
+  - export CXX=g++-7
   - cmake . && make
