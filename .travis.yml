@@ -1,12 +1,7 @@
 # Set language to C++
 language: cpp
 
-# Test both clang and gcc
-compiler: 
-  - clang
-  - gcc
-
-# Set os and clang version
+# Choose os and clang versions
 matrix:
   include:
     - os: linux
@@ -18,16 +13,6 @@ matrix:
             - clang-5.0
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-      env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 # Newer cmake
 addons:
