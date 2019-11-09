@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/drmenguin/minilang-interpreter.svg?branch=master)](https://travis-ci.org/drmenguin/minilang-interpreter)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Documentation: Doxygen](https://img.shields.io/badge/documentation-doxygen-orange.svg)](https://drmenguin.com/minilang-interpreter/docs)
+[![Report : PDF](https://img.shields.io/badge/report-pdf-red.svg)](https://drmenguin.com/minilang-interpreter/report.pdf)
 
 This interpreter and REPL software were developed as part of a programming assignment for [CPS2000: Compiler Theory and Practice](https://www.um.edu.mt/courses/studyunit/CPS2000), a course forming part of my B.Sc. in Mathematics and Computer Science.
 
