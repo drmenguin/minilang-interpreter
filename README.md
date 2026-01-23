@@ -1,8 +1,7 @@
 # MiniLang: An Interpreter Written in C++
-[![CI](https://github.com/drmenguin/snakes/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/drmenguin/snakes/actions/workflows/ci.yml)
+[![CI](https://github.com/drmenguin/minilang-interpreter/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/drmenguin/minilang-interpreter/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/drmenguin/snakes/blob/master/LICENSE)
-<!--[![Documentation: Doxygen](https://img.shields.io/badge/documentation-doxygen-orange.svg)](https://drmenguin.com/minilang-interpreter/docs) -->
-[![Report : PDF](https://img.shields.io/badge/report-pdf-red.svg)](https://github.com/drmenguin/minilang-interpreter/blob/master/report.pdf)
+<!--[![Documentation: Doxygen](https://img.shields.io/badge/documentation-doxygen-orange.svg)](https://drmenguin.com/minilang-interpreter/docs) -->[![Report : PDF](https://img.shields.io/badge/report-pdf-red.svg)](https://github.com/drmenguin/minilang-interpreter/blob/master/report.pdf)
 
 This interpreter and REPL software were developed as part of a programming assignment for [CPS2000: Compiler Theory and Practice](https://www.um.edu.mt/courses/studyunit/CPS2000), a course forming part of my B.Sc. in Mathematics and Computer Science.
 
