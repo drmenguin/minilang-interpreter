@@ -1,6 +1,6 @@
 # MiniLang: An Interpreter Written in C++
 [![CI](https://github.com/drmenguin/minilang-interpreter/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/drmenguin/minilang-interpreter/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/drmenguin/snakes/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/drmenguin/minilang-interpreter/blob/master/LICENSE)
 [![Report : PDF](https://img.shields.io/badge/report-pdf-red.svg)](https://github.com/drmenguin/minilang-interpreter/blob/master/report.pdf)
 <!--[![Documentation: Doxygen](https://img.shields.io/badge/documentation-doxygen-orange.svg)](https://drmenguin.com/minilang-interpreter/docs) -->
 
